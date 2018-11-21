@@ -20,10 +20,10 @@ const passport     = require('passport');
 
 // undefined error, shows that you're missing a const. errors are hints, look at hints as very helpful. cannot find module, npm install --save module name.
 
-const User = require('../models/User');
+const User = require('./models/User');
 
 
-require('/config/passport-stuff.js');
+require('./config/passport-stuff.js');
 // after config folder, and passport information is placed in a passport file.
 // this line brings in all the stuff from the passport.js file in the config folder.
 
@@ -81,11 +81,14 @@ app.use(passport.session());
 //this line connects passport to the session you created
 
 
-app.locals.theUser = req.user;
-// same as here app.use(function(req, res, next)=>{
-//   res.locals.theUser = req.user;
-//   next();
-// });
+// app.locals.theUser = req.user;
+app.use((req, res, next)=>{
+  res.locals.theUser = req.user;
+  next();
+});
+// adds a variable for each logged in user, for the view files.
+// add function on first line if error shows up.
+
 
 // this above line code not from passport, we made this.
 // we want to pass in the user to every single view in the entire app.

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Artist = require('../models/Artist.js');
-
+const User    = require('../models/User.js');
 // by requiring in the Task model, I now have access to Task.find, Task.Create, Task.findById, etc. important to allow certain methods to be used across the app.
 
 
@@ -53,7 +53,7 @@ router.post('/artists/artist-new', (req, res, next) => {
 router.post('/artists/:id/delete', (req, res, next)=>{
   Artists.findByIdAndRemove(req.params.id)
     .then(()=>{
-      res.redirect('/artists/artists');
+      res.redirect('/artists');
     })
     .catch((err)=>{
       next(err);
