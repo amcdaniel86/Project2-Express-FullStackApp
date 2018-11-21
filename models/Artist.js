@@ -9,8 +9,8 @@ const artistSchema = new Schema({
       genre: String,
       album: [{type: _Id, ref: 'Album'}],
       song:  [{type: _Id, ref: 'Song'}],
-      hometown: String
-      rating: Number
+      hometown: String,
+      rating: Number,
       reviews: [
         {
           user: [{type: _Id, ref: 'User'}],
