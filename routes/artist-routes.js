@@ -9,13 +9,13 @@ const Artist = require('../models/Artist.js');
 // const router = creates an object that has a bunch of specific features that the developer chooses. with this object, you get methods like .get, .post, .put, .patch, .delete and they tell your app to wait for a request that matches. They then run whatever code is written inside them, ONLY WHEN CODE MATCHES.
 
 // router.get takes two arguments, first arg is the url that we're going to sit and wait for.
-// 2nd arg is the function that will RUN when THE FIRST ARG (URL) is ran. this function gets three arbitrary arguments by default. these three give us methods like res.render and res.json and res.redirect and req.params. can change their names as long as they match the .render, .json, .params that is used in the functions.
+// 2nd arg is the function that will RUN when THE FIRST ARG (URL) is ran (user navigates to URL). this function gets three arbitrary arguments by default. these three give us methods like res.render and res.json and res.redirect and req.params. can change their names (req, res etc can be changed before the .) as long as they match the .render, .json, .params that is used in the functions.
 
 // Main List Artists View
 router.get('/artists', (req, res, next)=>{
   Artist.find()
     .then(artists => {
-      res.render("artists", { artists });
+      res.render("artist-list", { artists });
     })
     .catch(err => {
       console.log(err)

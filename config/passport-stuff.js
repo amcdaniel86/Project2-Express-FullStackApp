@@ -37,3 +37,5 @@ passport.serializeUser((user, cb) => {
     });
   }));
   // this local strategy is the function that gets call when you call passport.authenticate('local' in the route)
+
+  module.exports = passport;

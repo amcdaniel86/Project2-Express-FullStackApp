@@ -6,10 +6,11 @@ const userSchema = new Schema({
       username: String,
       password: String,
       bio: String,
-      favoriteArtist: {type: _Id, ref:'Artist'},
-      favoriteAlbum: {type: _Id, ref: 'Album'},
-      favoriteSong: {type: _Id, ref: 'Song'}
+      favoriteArtist: {type: Schema.Types.ObjectId, ref:'Artist'},
+      favoriteAlbum: {type: Schema.Types.ObjectId, ref: 'Album'},
+      favoriteSong: String
 })
+// Schema.Types.ObjectId when referencing an Id from another key.
 
 const User = mongoose.model('User', userSchema);
 // 'User' is linked to the name of the collection in the database.

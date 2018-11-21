@@ -6,17 +6,13 @@ const Schema = mongoose.Schema;
 
 const albumSchema = new Schema({
   name: String,
-  genre: {type: _Id, ref: 'Artist'},
-  song: [{type: _Id, ref: 'Song'}],
+  genre: {type: Schema.Types.ObjectId, ref: 'Artist'},
+  songs: [
+    {title: String, producer: String, duration: Number, Musician: [String], rating: Number }
+  ],
   releaseDate: Date,
   sales: Number,
   rating: Number,
-  review: [
-    {
-      user: [{type: _Id, ref: 'User'}],
-      comments: String
-    }
-  ]
   // rules for the model from this Schema object.
 }, {
   timestamps: {
