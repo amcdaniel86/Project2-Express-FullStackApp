@@ -1,0 +1,34 @@
+
+
+{{#each albums}}
+
+<h3>{{this.name}}</h3>
+<h3>{{this.genre}}</h3>
+
+{{!-- make dropdown for this --}}
+<h3>{{this.songs}}</h3>
+{{!-- UNSURE HOW TO SHOW LIST OF SONGS UNDER AN ARTIST --}}
+
+
+<h3>{{this.releaseDate}}</h3>
+
+<p>{{this.sales}}</p>
+
+<p>{{this.rating}}</p>
+
+<img src="{{this.image}}" style="width: 100px" alt="">
+<a href="/albums/{{this.._id}}">More Details</a>
+<a href="/albums/{{this._id}}/edit">Edit This Album</a>
+
+
+
+{{/each}}
+
+{{!-- name: String, 
+  genre: {type: Schema.Types.ObjectId, ref: 'Artist'},
+  songs: [
+    {title: String, producer: String, duration: Number, Musician: [String], rating: Number }
+  ],
+  releaseDate: Date,
+  sales: Number,
+  rating: Number, --}}

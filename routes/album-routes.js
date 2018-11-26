@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Album = require('../models/Album.js');
+const Artist = require('../models.Artist.js');
 
 // Main List Albums View
 router.get('/albums', (req, res, next)=>{
