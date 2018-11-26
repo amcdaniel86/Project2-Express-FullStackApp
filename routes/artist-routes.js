@@ -45,7 +45,7 @@ router.post('/artists/artist-new', (req, res, next) => {
           res.redirect('/artists/artists');
       })
       .catch(()=>{
-        res.redirect('/artists/new');
+        res.redirect('/artists/artist-new');
       })
 });
 

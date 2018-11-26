@@ -106,5 +106,7 @@ app.use('/', artistRoutes);
 const userRoutes = require('./routes/user-routes');
 app.use('/', userRoutes);
 
+const albumRoutes = require('./routes/album-routes');
+app.use('/', albumRoutes);
 
 module.exports = app;

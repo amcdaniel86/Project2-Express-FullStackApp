@@ -17,14 +17,21 @@ router.get('/register', (req, res, next)=>{
 
 
 
-// to sign up, WE ARE ADDING SOMETHING TO THE DATABASE.
+// to sign up, WE ARE ADDING SOMETHING TO THE DATABASE. must check with if statement if user exists already in the database.
 router.post('/register', (req, res, next)=>{
-
-      const  theUsername = req.body.username;
+      const theUsername = req.body.username;
       const thePassword = req.body.password;
       const theBio      = req.body.bio;
-
-
+      if (theUsername === "" || thePassword === "") {
+        res.render("auth/signup", { message: "Indicate username and password" });
+        return;
+      }
+      User.findOne({ username })
+        .then(user => {
+          if (user !== null) {
+            res.render("auth/signup", { message: "The username already exists" });
+            return;
+          }
 
 // don't worry about how they work as of now, just know that these two const are required inside the router.post('/signup',) - how to scramble a password or any info that you want scrambled.
 // use the salt to hash the password and save the scrambled verions and not save the original.
@@ -43,7 +50,7 @@ router.post('/register', (req, res, next)=>{
       .catch((err)=>{
         next(err);
       })
-})
+});
 
 
 
@@ -58,7 +65,7 @@ router.get('/login', (req, res, next)=>{
 // can't make a post request, UNTIL THERE'S A FORM THAT IS ON A LOGIN VIEWS PAGE.
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/profile",
-  failureRedirect: "/login",
+  failureRedirect: "/login-page",
   failureFlash: true,
   passReqToCallback: true
 }));
@@ -68,13 +75,14 @@ router.post("/login", passport.authenticate("local", {
 
 router.get('/logout', (req, res, next)=>{
   req.logout();
-  res.redirect('/');
-})
+  res.redirect('/login-page');
+});
 
 router.get('/profile', (req, res, next)=>{
   res.render('profile')
   // req.user is magic, it automatically lets teh system know if passport being used, once logged in, req.user is a variable that you can use IN ANY ROUTE. It is equal to the entire USER OBJECT, username, password, bio etc all of it. theUser is arbitrary, a variable.
-})
+  // NOT SURE WHAT ABOVE IS
+});
 
 
 

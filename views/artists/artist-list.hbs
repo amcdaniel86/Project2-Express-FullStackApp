@@ -1,0 +1,22 @@
+
+
+{{#each artists}}
+
+<h3>{{this.name}}</h3>
+<h3>{{this.genre}}</h3>
+
+<h3>{{this.album}}</h3>
+{{!-- UNSURE HOW TO SHOW LIST OF ALBUMS UNDER AN ARTIST --}}
+
+
+<h3>{{this.hometown}}</h3>
+
+<p>{{this.rating}}</p>
+
+<img src="{{this.image}}" style="width: 100px" alt="">
+<a href="/artists/{{this.._id}}">More Details</a>
+<a href="/artists/{{this._id}}/edit">Edit This Artist</a>
+
+
+
+{{/each}}
