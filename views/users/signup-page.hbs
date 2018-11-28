@@ -1,71 +1,73 @@
-<h1>Register A New Account</h1>
 
+<div class="header-bg">
+<h1 class="welcome-header">Register A New Account</h1>
+</div>
 
-
+<br><br><br><br><br><br><br><br>
 <form action="/register" method="POST">
 {{!-- name field in inputs are used after req.body in routes files. --}}
 
 <label for="">Username: </label>
-<input type="text" name="username" required>
+<input class="input-bg" type="text" name="username" required>
 
 
 <label for="">Password: </label>
-<input type="password" name="password" required>
+<input class="input-bg" type="password" name="password" required>
 <br>
 <br>
 <label for="">Confirm Password: </label>
-<input type="password" name="confirmPassword" required>
+<input class="input-bg" type="password" name="confirmPassword" required>
 
 
 <label for="">First Name: </label>
-<input type="text" name="firstName">
+<input class="input-bg" type="text" name="firstName">
 
 <br>
 <label for="">Last Name: </label>
-<input type="text" name="lastName">
+<input class="input-bg" type="text" name="lastName">
 
 
 <label for="">Bio: </label>
-<textarea name="bio" id="" cols="30" rows="10" value="A few sentences... "></textarea>
+<textarea class="input-bg" name="bio" id="" cols="30" rows="10" value="A few sentences... "></textarea>
 
 
 <label for="">Favorite Artist: </label>
-<select name="" id="">
+<select class="input-bg" name="" id="">
 {{#each artists}}
 
-<option value="{{this._id}}">{{this.name}}</option>
+<option class="input-bg" value="{{this._id}}">{{this.name}}</option>
 
 {{/each}}</select>
 
 
 <label for="">Favorite Album: </label>
-<select name="" id="">
+<select class="input-bg" name="" id="">
 {{#each albums}}
 
-<option value="{{this._id}}">{{this.title}}</option>
+<option class="input-bg" value="{{this._id}}">{{this.title}}</option>
 
 {{/each}}</select>
 
 <label for="">Favorite Song: </label>
-<select name="" id="">
+<select class="input-bg" name="" id="">
 <option value="{{songs._id}}"></option>
 </select>
 
 <label for="">Picture</label>
-<input type="text" name="image">
+<input class="input-bg" type="text" name="image">
 
 
 <label for="">Hometown: </label>
-<input type="text" name="homeTown">
+<input class="input-bg" type="text" name="homeTown">
 
 <br><br><br><br>
 
 
-<button>Create an Account</button>
+<button class="input-bg">Create an Account</button>
 
 {{#if message}}
 
-  <p class="errorMessage">{{message}}</p>
+  <p class=" input-bg errorMessage">{{message}}</p>
 
 {{/if}}
 

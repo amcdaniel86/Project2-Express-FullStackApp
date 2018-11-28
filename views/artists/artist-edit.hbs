@@ -1,36 +1,46 @@
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
 
+<div class="header-bg">
+<h1 class="welcome-header">Edit {{artist.name}}</h1>
+
+</div>
+
+<br><br><br><br><br>
 <form action="/artists/{{artist._id}}/edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
 <label>Name</label>
-<input type="text" name="name">
+<input class="input-bg" type="text" name="name">
 {{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
 
 <label>Genre</label>
-<input type="text" name="genre">
+<input class="input-bg" type="text" name="genre">
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
 <label>Album</label>
-<input type="{{this._id}}" name="album">
+<input class="input-bg" type="{{this._id}}" name="album">
 
 <label>Hometown</label>
-<input type="text" name="hometown">
+<input class="input-bg" type="text" name="hometown">
 
-<select name="rating" id="">
+<select class="input-bg" name="rating" id="">
   <option value="">Excellent</option>
   <option value="">Average</option>
   <option value="">Mediocre</option>
 </select>
 
 
-<button>Submit</button>
+<button class="input-bg" >Submit</button>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 
 
 </form>
 
+<br>
+<a href="/profile">Profile</a>
+<br><br>
+<a href="/">Home</a>
 {{!-- name sections in input must match below from each model --}}
 {{!-- USER MUST BE LOGGED IN TO EDIT ARTIST OR ALBUM --}}

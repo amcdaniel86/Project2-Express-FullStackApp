@@ -1,23 +1,27 @@
-<h1>Login</h1>
 
-<h2>WELCOME</h2>
+<div class="header-bg">
+<h1 class="welcome-header">Login</h1>
 
+<h2 class="welcome-header">WELCOME</h2>
+</div>
+
+<br><br><br><br><br><br><br><br>
 <form action="/login" method="POST">
 
 
 <label for="">Username: </label>
-<input type="text" name="username" required>
+<input class="input-bg" type="text" name="username" required>
 
 
 <label for="">Password: </label>
-<input type="text" name="password" required>
+<input class="input-bg" type="text" name="password" required>
 
 {{!-- create config folder in root directory for passport stuff. put them in passport-stuff.js file. --}}
 
-<button>Log In</button>
+<button class="input-bg">Log In</button>
 
 {{#if message}}
-  <h4 class="errorMessage">{{message}}</h4>
+  <h4 class="input-bg errorMessage">{{message}}</h4>
 {{/if}}
 <br><br>
 <a href="/register">Sign Up/Register</a>

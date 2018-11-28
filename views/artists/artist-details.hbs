@@ -1,8 +1,11 @@
 
-<h1>
+<div class="header-bg">
+<h1 class="welcome-header">
 {{artist.name}}
 </h1>
-
+</div>  
+<br><br><br><br>
+<div class="content-placing">
 {{#each artist.album}}
 <h2>
 {{this.title}}
@@ -20,13 +23,15 @@
 {{rating}}
 </p>
 
+</div>
+
 
 <img src="{{image}}" alt="" style="width: 300px">
 
 <form action="/artists/{{_id}}/delete" method="POST">
   
  <h4>
- <button>Delete This Artist</button>
+ <button class="input-bg">Delete This Artist</button>
  </h4> 
   
 </form>

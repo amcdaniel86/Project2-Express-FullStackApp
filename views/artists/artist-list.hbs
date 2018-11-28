@@ -1,5 +1,10 @@
-<h1>Welcome to Our Artist List Page</h1>
+<div class="header-bg">
+<h1 class="welcome-header">Welcome to Our Artist List Page</h1>
+</div>
 
+<br><br><br><br>
+
+<div class="content-placing">
 {{#each artists}}
 
 <h3>{{this.name}}</h3>
@@ -25,6 +30,8 @@
 
 
 {{/each}}
+
+</div>
 <br><br><br><br>
 <h2>
 <a href="/artist-new/">Add Artist</a><br><br>
@@ -34,3 +41,5 @@
 <a href="/profile-edit">Profile Edit</a>
 <br><br>
 <a href="/albums">Albums</a>
+<br><br>
+<a href="/">Home</a>

@@ -7,7 +7,7 @@ body {
   background-size: cover; }
 
 a {
-  color: #00B7FF; }
+  color: #099eda; }
 
 .header-bg {
   background: rgba(22, 22, 22, 0.8);
@@ -18,5 +18,10 @@ a {
   display: flex;
   justify-content: center;
   font-weight: 300; }
+
+.input-bg {
+  background: rgba(22, 22, 22, 0.8);
+  color: white;
+  border-radius: 15%; }
 
 /*# sourceMappingURL=style.css.map */
