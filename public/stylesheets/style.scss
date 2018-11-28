@@ -1,8 +1,24 @@
 body {
-  padding: 50px;
+  padding: 3%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  color: white;
+  background-image: url("/images/abstract-bg.jpg");
+  background-size: cover;
 }
 
 a {
   color: #00B7FF;
+}
+
+.header-bg{
+  background: rgba(22,22,22,.8);
+  position: absolute;
+  width: 94%;
+}
+
+.welcome-header{
+  display: flex;
+  justify-content: center;
+  font-weight: 300;
 }

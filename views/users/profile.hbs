@@ -1,12 +1,27 @@
-<h1>Welcome, {{theUser.username}}</h1>
 
-bio:
-
-<div>
-
-
-{{theUser.bio}}
-
-
+<div class="header-bg">
+<h1 class="welcome-header">Welcome, {{user.firstName}} {{user.lastName}}
+  aka {{user.username}}</h1>
 
 </div>
+
+<br><br><br><br><br><br>
+{{user.homeTown}}
+{{user.favoriteArtist}}
+{{user.favoriteAlbum}}
+{{user.favoriteSong}}
+{{user.image}}
+<br><br>
+{{user.bio}}
+{{user.createdAt}}
+
+
+<p>{{user.username}}'s love of music has no bounds</p>
+<br><br>
+<a href="/profile-edit">Edit Profile</a> <br><br>
+<a href="/artists">Artist List</a>
+<br><br>
+<a href="/albums">Album List</a>
+<br>
+<br>
+<a href="/logout">Logout</a>

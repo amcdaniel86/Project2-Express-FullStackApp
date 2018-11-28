@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const artistSchema = new Schema({
       name: String,
       genre: String,
-      album: [{type: Schema.Types.ObjectId, ref: 'Album'}],
+      // album: [{type: Schema.Types.ObjectId, ref: 'Album'}],
       hometown: String,
       rating: Number,
       // rules for the model from this Schema object.

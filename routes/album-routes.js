@@ -1,13 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const Album = require('../models/Album.js');
-const Artist = require('../models.Artist.js');
+const express       = require('express');
+const router        = express.Router();
+const Album         = require('../models/Album.js');
+const Artist        = require('../models/Artist.js');
+const flash        = require('connect-flash');
 
 // Main List Albums View
 router.get('/albums', (req, res, next)=>{
   Album.find()
     .then(albums => {
-      res.render("albums", { albums });
+      res.render("albums/album-list", { albums });
     })
     .catch(err => {
       console.log(err)
@@ -15,10 +16,11 @@ router.get('/albums', (req, res, next)=>{
 });
 
 // Album Detail View
-router.get('/albums/:id', (req, res, next)=>{
+router.get('/albums/:id/details', (req, res, next)=>{
   let albumId = req.params.id;
-    Album.findOne({'_id': albumId})
-      .then(album => {
+    Album.findById(albumId)
+    .then((album) => {
+        console.log(album)
         res.render("albums/album-details", { album })
       })
       .catch(err => {
@@ -27,25 +29,30 @@ router.get('/albums/:id', (req, res, next)=>{
 });
 
 // Add Album to Database
-router.get('/albums/album-new', (req, res, next) => {
+router.get('/album-new', (req, res, next) => {
     res.render("albums/album-new");
 });
 
-router.post('/albums/album-new', (req, res, next) => {
+router.post('/album-new', (req, res, next) => {
+      if(!req.user) {
+        res.locals.message = "Error: You must be logged in to add to database.";
+        res.render('users/login-page');
+      }
+        // req.body.user = req.user_id;
     Album.create(req.body)
       .then(()=>{
-          res.redirect('/albums/albums');
+          res.redirect('/albums');
       })
       .catch(()=>{
-        res.redirect('/albums/new');
+        res.redirect('/album-new');
       })
 });
 
 // Delete Album from Database
 router.post('/albums/:id/delete', (req, res, next)=>{
-  Albums.findByIdAndRemove(req.params.id)
+  Album.findByIdAndRemove(req.params.id)
     .then(()=>{
-      res.redirect('/albums/albums');
+      res.redirect('/albums');
     })
     .catch((err)=>{
       next(err);
@@ -56,7 +63,7 @@ router.post('/albums/:id/delete', (req, res, next)=>{
 router.get('/albums/:id/edit', (req, res, next)=>{
   Album.findById(req.params.id)
     .then((album)=>{
-      res.render('albums/edit', { album })
+      res.render('albums/album-edit', { album })
     })
     .catch((err)=>{
       next(err);

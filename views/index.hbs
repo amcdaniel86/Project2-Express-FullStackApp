@@ -1,2 +1,21 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+
+<h1>Welcome to Music Pedia</h1>
+
+<a href="/register">Sign Up/Register</a>
+<br><br>
+<a href="/login">Log In</a>
+<br><br>
+{{#if user}}
+<a href="/users/{{user._id}}/profile">Your Profile</a>
+
+<a href="/login">Log in</a>
+
+<a href="/logout">Logout</a>
+
+
+{{/if}}
+
+<a href="/artists">All Artists</a>
+<br><br>
+<a href="/albums">All Albums</a>

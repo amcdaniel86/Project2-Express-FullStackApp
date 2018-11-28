@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 // Schema is a feature of mongoose that allows us to make rules for the database, otherwise MongoDB is chaos. Also gives extra features such as default, unique, required, maxlength and minlength.
 
 const albumSchema = new Schema({
-  name: String,
-  genre: {type: Schema.Types.ObjectId, ref: 'Artist'},
+  title: String,
+  genre: String,
   songs: [
     {title: String, producer: String, duration: Number, Musician: [String], rating: Number }
   ],

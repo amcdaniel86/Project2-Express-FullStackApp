@@ -1,5 +1,4 @@
-<h1>Add New Artist to our database</h1>
-
+<h1>Add New Artist to our Database</h1>
 
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
@@ -25,7 +24,7 @@
 {{/each}}
 
  </select>
-
+<br><br>
 <label>Hometown</label>
 <input type="text" name="hometown">
 
@@ -38,12 +37,12 @@
 
 <button>Submit</button>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
+<br><br>
+<a href="/profile">Profile</a><br><br>
+<a href="/">Main</a>
 
 
 </form>
 
-{{!-- name: String,
-      genre: String,
-      album: [{type: Schema.Types.ObjectId, ref: 'Album'}],
-      hometown: String,
-      rating: Number --}}
+{{!-- name sections in input must match below from each model --}}
+{{!-- USER MUST BE LOGGED IN TO ADD ARTIST OR ALBUM --}}

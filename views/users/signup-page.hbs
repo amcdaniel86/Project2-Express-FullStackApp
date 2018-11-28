@@ -1,26 +1,77 @@
+<h1>Register A New Account</h1>
+
+
 
 <form action="/register" method="POST">
-{{!-- magic comes from teh form, not much from the router.get request on routes file. --}}
+{{!-- name field in inputs are used after req.body in routes files. --}}
 
-<label for="">Username</label>
-<input type="text" name="username">
-
-
-<label for="">Password</label>
-<input type="text" name="password">
+<label for="">Username: </label>
+<input type="text" name="username" required>
 
 
-<label for="">Bio</label>
-<textarea name="bio" id="" cols="30" rows="5"></textarea>
-{{!-- prefilled text would go in text area for textarea section. --}}
+<label for="">Password: </label>
+<input type="password" name="password" required>
+<br>
+<br>
+<label for="">Confirm Password: </label>
+<input type="password" name="confirmPassword" required>
+
+
+<label for="">First Name: </label>
+<input type="text" name="firstName">
+
+<br>
+<label for="">Last Name: </label>
+<input type="text" name="lastName">
+
+
+<label for="">Bio: </label>
+<textarea name="bio" id="" cols="30" rows="10" value="A few sentences... "></textarea>
+
+
+<label for="">Favorite Artist: </label>
+<select name="" id="">
+{{#each artists}}
+
+<option value="{{this._id}}">{{this.name}}</option>
+
+{{/each}}</select>
+
+
+<label for="">Favorite Album: </label>
+<select name="" id="">
+{{#each albums}}
+
+<option value="{{this._id}}">{{this.title}}</option>
+
+{{/each}}</select>
+
+<label for="">Favorite Song: </label>
+<select name="" id="">
+<option value="{{songs._id}}"></option>
+</select>
+
+<label for="">Picture</label>
+<input type="text" name="image">
+
+
+<label for="">Hometown: </label>
+<input type="text" name="homeTown">
 
 <br><br><br><br>
-<button>Submit</button>
 
 
+<button>Create an Account</button>
 
+{{#if message}}
 
+  <p class="errorMessage">{{message}}</p>
 
+{{/if}}
 
+<br><br>
+<a href="/login">Log In</a>
+<br><br>
+<a href="/">Home</a>
 
 </form>

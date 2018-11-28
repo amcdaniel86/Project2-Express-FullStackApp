@@ -1,0 +1,58 @@
+{{!-- how do we make it easy for the user to submit a post request? --}}
+{{!-- how do we control the post request? --}}
+
+<h1>Edit {{user.username}}</h1>
+
+<form action="users/{{user._id}}/profile-edit" method="POST">
+{{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
+
+<label>First Name: </label>
+<input type="text" name="firstName" value="{{user.firstName}}">
+{{!-- each input controls what the user is allowed inside the post request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
+
+
+<label>Last Name: </label>
+<input type="text" name="lastName" value="{{user.lastName}}">
+{{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
+
+<label>Bio: </label>
+<textarea name="bio" cols="30" rows="10" value="{{user.bio}}"></textarea>
+
+<label>Hometown: </label>
+<input type="text" name="homeTown" value="{{user.homeTown}}">
+
+
+<label>Favorite Artist: </label>
+<select name="" id="">
+{{#each artists}}
+
+<option value="{{this._id}}">{{this.name}}
+</option>
+{{/each}}</select>
+
+
+<label>Favorite Album: </label>
+<select name="" id="">
+{{#each albums}}
+
+<option value="{{this._id}}">{{this.title}}</option>
+{{/each}}</select>
+
+
+<label>Favorite Song: </label>
+<input type="text" name="homeTown" value="{{user.favoriteSong}}">
+
+
+<button>Submit</button>
+{{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
+
+
+</form>
+
+{{!-- {{user.bio}}
+
+{{user.favoriteArtist}}
+{{user.favoriteAlbum}}
+{{user.favoriteSong}}
+{{user.image}}
+{{user.createdAt}} --}}

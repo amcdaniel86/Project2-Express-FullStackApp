@@ -1,0 +1,35 @@
+
+<h1>
+{{artist.name}}
+</h1>
+
+{{#each artist.album}}
+<h2>
+{{this.title}}
+</h2>
+{{/each}}
+
+<h3>
+{{artist.genre}}
+</h3>
+
+<p>
+{{artist.hometown}}
+</p>
+<p>
+{{rating}}
+</p>
+
+
+<img src="{{image}}" alt="" style="width: 300px">
+
+<form action="/artists/{{_id}}/delete" method="POST">
+  
+ <h4>
+ <button>Delete This Artist</button>
+ </h4> 
+  
+</form>
+
+<a href="/profile">Profile</a><br><br>
+<a href="/login">Log In</a>

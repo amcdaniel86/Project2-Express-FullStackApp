@@ -17,6 +17,7 @@ const path         = require('path');
 const bcrypt       = require('bcryptjs');
 const session      = require('express-session');
 const passport     = require('passport');
+const flash        = require('connect-flash');
 
 // undefined error, shows that you're missing a const. errors are hints, look at hints as very helpful. cannot find module, npm install --save module name.
 
@@ -63,8 +64,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
 
 // ROUTES/AND ADDED ROUTES FILES GO HERE
 
@@ -74,6 +73,8 @@ app.use(session({
   saveUninitialized: true
 }));
 // this block of code configures and activates a session in express
+
+app.use(flash());
 
 app.use(passport.initialize());
 // this line 'turns on' the passport package
@@ -96,10 +97,14 @@ app.use((req, res, next)=>{
 
 
 
+// default value for title local
+app.locals.title = 'Musicopia';
+
+
+
 const index = require('./routes/index');
 app.use('/', index);
 
-// this new require only works if module.exports is in the file.
 const artistRoutes = require('./routes/artist-routes');
 app.use('/', artistRoutes);
 
@@ -110,3 +115,6 @@ const albumRoutes = require('./routes/album-routes');
 app.use('/', albumRoutes);
 
 module.exports = app;
+
+
+// this new require only works if module.exports is in the file.

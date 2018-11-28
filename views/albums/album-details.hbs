@@ -1,0 +1,41 @@
+
+<h1>
+{{album.title}}
+</h1>
+
+{{#each album.songs}}
+<h2>
+{{this.title}}
+</h2>
+{{/each}}
+
+<h3>
+{{album.genre}}
+</h3>
+
+<p>
+{{album.sales}} <br>
+(in millions)
+</p>
+
+<p>
+{{album.rating}}
+</p>
+
+<p>
+
+</p>
+
+
+<img src="{{image}}" alt="" style="width: 300px">
+
+<form action="/albums/{{_id}}/delete" method="POST">
+  
+ <h4>
+ <button>Delete This Album</button>
+ </h4> 
+  
+</form>
+
+<a href="/profile">Profile</a><br><br>
+<a href="/login">Log In</a>

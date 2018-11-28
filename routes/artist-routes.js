@@ -1,8 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const Artist = require('../models/Artist.js');
-const User    = require('../models/User.js');
-// by requiring in the Task model, I now have access to Task.find, Task.Create, Task.findById, etc. important to allow certain methods to be used across the app.
+const express        = require('express');
+const router        = express.Router();
+const Artist        = require('../models/Artist.js');
+const User         = require('../models/User.js');
+const Album       = require('../models/Album.js');
+
+
+// by requiring in the Artist model, I now have access to Task.find, Task.Create, Task.findById, etc. important to allow certain methods to be used across the app.
 
 
 // just like mongoose and schema, require('express') is needed because its used to maake a router.
@@ -13,9 +16,9 @@ const User    = require('../models/User.js');
 
 // Main List Artists View
 router.get('/artists', (req, res, next)=>{
-  Artist.find()
+  Artist.find().populate("albums")
     .then(artists => {
-      res.render("artist-list", { artists });
+      res.render("artists/artist-list", { artists });
     })
     .catch(err => {
       console.log(err)
@@ -23,9 +26,9 @@ router.get('/artists', (req, res, next)=>{
 });
 
 // Artist Detail View
-router.get('/artists/:id', (req, res, next)=>{
+router.get('/artists/:id/details', (req, res, next)=>{
   let artistId = req.params.id;
-    Artist.findOne({'_id': artistId})
+    Artist.findById(artistId).populate("album")
       .then(artist => {
         res.render("artists/artist-details", { artist })
       })
@@ -35,25 +38,30 @@ router.get('/artists/:id', (req, res, next)=>{
 });
 
 // Add Artist to Database
-router.get('/artists/artist-new', (req, res, next) => {
+router.get('/artist-new', (req, res, next) => {
     res.render("artists/artist-new");
 });
 
-router.post('/artists/artist-new', (req, res, next) => {
+router.post('/artist-new', (req, res, next) => {
+    if(!req.user) {
+      res.locals.message = "Error: You must be logged in to add to database.";
+      res.render('users/login-page');
+    }
+    // req.body.user = req.user_id;
     Artist.create(req.body)
       .then(()=>{
-          res.redirect('/artists/artists');
+        res.redirect('/artists');
       })
-      .catch(()=>{
-        res.redirect('/artists/artist-new');
-      })
-});
+      .catch(err => {
+        res.redirect('/artists/new');
+      })  
+    });
 
 // Delete Artist from Database
 router.post('/artists/:id/delete', (req, res, next)=>{
   Artists.findByIdAndRemove(req.params.id)
     .then(()=>{
-      res.redirect('/artists');
+      res.redirect('/artists/artist-list');
     })
     .catch((err)=>{
       next(err);
@@ -62,9 +70,14 @@ router.post('/artists/:id/delete', (req, res, next)=>{
 
 // Edit Artist in Database
 router.get('/artists/:id/edit', (req, res, next)=>{
+  if(!req.user) {
+    req.flash("error", "You must be logged in to edit an artist.");
+    res.redirect("/login");
+    return;
+  }
   Artist.findById(req.params.id)
     .then((artist)=>{
-      res.render('artists/edit', {artist})
+      res.render('artists/artist-edit', {artist})
     })
     .catch((err)=>{
       next(err);
@@ -74,7 +87,7 @@ router.get('/artists/:id/edit', (req, res, next)=>{
 router.post('/artists/:id/edit', (req, res, next)=>{
   Artist.findByIdAndUpdate(req.params.id, req.body)
     .then(()=>{
-      res.redirect('/artists/artists');
+      res.redirect('/artists');
     })
     .catch((err)=>{
       next(err);

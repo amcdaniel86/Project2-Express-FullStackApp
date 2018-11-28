@@ -7,14 +7,24 @@
 <form action="/album-new" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
-<label>Name</label>
-<input type="text" name="name">
+<label>Title</label>
+<input type="text" name="title">
 {{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
 
 <label>Genre</label>
 <input type="text" name="genre">
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
+
+<label>Artists</label>
+<select name="artist" id="">
+{{#each allArtists}}
+
+<option value="{{this._id}}">{{this.artists}}</option>
+
+{{/each}}
+
+ </select>
 
 <label>Songs</label>
 <select name="song" id="">
@@ -30,7 +40,7 @@
 <input type="text" name="releaseDate">
 
 
-<label>Sales</label>
+<label>Sales (millions)</label>
 <input type="number" name="sales">
 
 
@@ -48,11 +58,6 @@
 
 </form>
 
-{{!-- name: String, 
-  genre: {type: Schema.Types.ObjectId, ref: 'Artist'},
-  songs: [
-    {title: String, producer: String, duration: Number, Musician: [String], rating: Number }
-  ],
-  releaseDate: Date,
-  sales: Number,
-  rating: Number, --}}
+{{!-- name sections in input must match below from each model --}}
+
+{{!-- USER MUST BE LOGGED IN TO ADD ARTIST OR ALBUM --}}

@@ -1,7 +1,7 @@
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
 
-<form action="artists/:id/artist-edit" method="POST">
+<form action="/artists/{{artist._id}}/edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
 <label>Name</label>
@@ -32,8 +32,5 @@
 
 </form>
 
-{{!-- name: String,
-      genre: String,
-      album: [{type: Schema.Types.ObjectId, ref: 'Album'}],
-      hometown: String,
-      rating: Number --}}
+{{!-- name sections in input must match below from each model --}}
+{{!-- USER MUST BE LOGGED IN TO EDIT ARTIST OR ALBUM --}}
