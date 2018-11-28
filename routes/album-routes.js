@@ -79,9 +79,9 @@ router.post('/albums/:id/edit', (req, res, next)=>{
   }
   Album.findById(req.params.id)
     .then((artist)=>{
-      Album.find()
-      .then((allTheAlbums)=>{
-        res.render('artists/artist-edit', {artist, message: req.flash("error"), albums: allTheAlbums} );
+      Artist.find()
+      .then((allTheArtists)=>{
+        res.render('albums/album-edit', {artist, message: req.flash("error"), albums: allTheArtists} );
       })
       .catch((err)=>{
         next(err);

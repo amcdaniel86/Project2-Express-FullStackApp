@@ -41,15 +41,19 @@
 {{#each albums}}
 
 <option value="{{this._id}}">{{this.title}}</option>
-{{/each}}</select>
+{{/each}}
+</select>
 
 
 <label>Favorite Song: </label>
-<input class="input-bg" type="text" name="homeTown" value="{{user.favoriteSong}}">
+<select class="input-bg" name="favoriteSong" id="">
+{{#each songs}}
 
-</ul>
+<option value="{{this._id}}">{{this.title}}</option>
+{{/each}}
+</select>
 
-<button class="input-bg">Submit</button>
+<button class="input-bg ">Submit</button>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 
 
@@ -62,6 +66,8 @@
 <ul class="page-links">
 <a href="/profile">Profile</a>
 <br><br>
+<a href="/artists">Artists</a>
+<a href="/albums">Albums</a>
 <a href="/">Home</a>
 </ul>
 </div>

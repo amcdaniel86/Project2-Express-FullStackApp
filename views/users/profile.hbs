@@ -7,19 +7,32 @@
 
 <br><br><br><br><br>
 
-<div class="center-content">
+<div class="footer-bg center-content">
 
+  <ul>
+
+<label>Hometown:</label>
 {{user.homeTown}}
+<br><br>
+<label>Favorite Artist:</label>
 {{user.favoriteArtist.name}}
+<br><br>
+<label>Favorite Album:</label>
 {{user.favoriteAlbum.title}}
+<br><br>
+<label>Favorite Song:</label>
 {{user.favoriteSong}}
+<br><br>
+<label>Bio:</label>
+{{user.bio}}
 {{user.image}}
 <br><br>
-{{user.bio}}
+<label></label>
 {{user.createdAt}}
 
 
 <p>{{user.username}}'s love of music has no bounds</p>
+  </ul>
 <br><br>
 </div>
 
@@ -31,9 +44,8 @@
     <a href="/artists">Artists</a>
     <br><br>
     <a href="/albums">Albums</a>
-    <br><br>
+    
     <a href="/">Home</a>
-    <br><br>
     </ul>
     <h2 class="page-links">
 <button class="add-button page-links input-bg">
