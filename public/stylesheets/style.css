@@ -8,7 +8,14 @@ body {
 
 a {
   color: #d3e0e6;
+  list-style: none;
+  text-decoration: none; }
+
+.login-footer a {
   text-decoration: line-through; }
+
+.sign-up-button {
+  text-decoration: none; }
 
 ul {
   list-style: none; }
@@ -17,7 +24,8 @@ ul {
   background: rgba(22, 22, 22, 0.8);
   position: absolute;
   color: white;
-  width: 94%; }
+  width: 94%;
+  border-radius: 80%; }
 
 .welcome-header {
   display: flex;
@@ -29,6 +37,9 @@ ul {
   align-items: center;
   position: relative;
   flex-direction: column; }
+
+.signup-boxes li {
+  margin: 2%; }
 
 .add-button {
   display: flex;
@@ -54,8 +65,7 @@ ul {
   text-decoration: none; }
 
 .page-links a {
-  margin: 5%;
-  text-decoration: none; }
+  margin: 5%; }
 
 .page-links button {
   margin: 10%; }
@@ -65,7 +75,7 @@ ul {
   position: relative;
   margin: 10% 0;
   width: 100%;
-  border-radius: 20%; }
+  border-radius: 80%; }
 
 .footer {
   position: relative;

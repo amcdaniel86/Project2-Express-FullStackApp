@@ -9,8 +9,16 @@ body {
 
 a {
   color: rgb(211, 224, 230);
-  text-decoration: line-through;
+  list-style:none;
+  text-decoration:none;
+}
 
+.login-footer a{
+  text-decoration: line-through;
+}
+
+.sign-up-button {
+  text-decoration:none;
 }
 
 ul {
@@ -22,6 +30,7 @@ ul {
   position: absolute;
   color: white;
   width: 94%;
+  border-radius:80%;
 }
 
 .welcome-header{
@@ -35,6 +44,10 @@ ul {
   align-items:center;
   position: relative;
   flex-direction: column;
+}
+
+.signup-boxes li{
+  margin:2%;
 }
 
 .add-button{
@@ -66,7 +79,7 @@ ul {
 
 .page-links a {
   margin:5%;
-  text-decoration:none;
+  
 }
 
 .page-links button {
@@ -78,7 +91,7 @@ ul {
   position: relative;
   margin: 10% 0;
   width: 100%;
-  border-radius:20%;
+  border-radius:80%;
 }
 
 .footer{

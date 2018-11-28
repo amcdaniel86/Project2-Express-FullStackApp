@@ -7,60 +7,91 @@
 <form action="/register" method="POST">
 {{!-- name field in inputs are used after req.body in routes files. --}}
 
-<label for="">Username: </label>
-<input class="input-bg" type="text" name="username" required>
+<ul class="signup-boxes">
 
+<li>
+
+<label for="">Username: </label>
+<input class="center-content input-bg" type="text" name="username" required>
+</li>
+
+<li>
 
 <label for="">Password: </label>
-<input class="input-bg" type="password" name="password" required>
+<input class="center-content input-bg" type="password" name="password" required>
+</li>
 <br>
 <br>
-<label for="">Confirm Password: </label>
-<input class="input-bg" type="password" name="confirmPassword" required>
+<li>
 
+<label for="">Confirm Password: </label>
+<input class="center-content input-bg" type="password" name="confirmPassword" required>
+</li>
+
+<li>
 
 <label for="">First Name: </label>
-<input class="input-bg" type="text" name="firstName">
+<input class="center-content input-bg" type="text" name="firstName">
+</li>
 
 <br>
+<li>
+
 <label for="">Last Name: </label>
-<input class="input-bg" type="text" name="lastName">
+<input class="center-content input-bg" type="text" name="lastName">
+</li>
 
-
+<li>
 <label for="">Bio: </label>
-<textarea class="input-bg" name="bio" id="" cols="30" rows="10" value="A few sentences... "></textarea>
+<textarea class="center-content input-bg" name="bio" id="" cols="30" rows="10" value="A few sentences... "></textarea>
+</li>
 
+<li>
 
 <label for="">Favorite Artist: </label>
-<select class="input-bg" name="favoriteArtist" id="">
+<select class="center-content input-bg" name="favoriteArtist" id="">
 {{#each artists}}
 
-<option class="input-bg" value="{{this._id}}">{{this.name}}</option>
+<option class="center-content input-bg" value="{{this._id}}">{{this.name}}</option>
 
 {{/each}}</select>
+</li>
 
+<li>
 
 <label for="">Favorite Album: </label>
-<select class="input-bg" name="favoriteAlbum" id="">
+<select class="center-content input-bg" name="favoriteAlbum" id="">
 {{#each albums}}
 
-<option class="input-bg" value="{{this._id}}">{{this.title}}</option>
+<option class="center-content input-bg" value="{{this._id}}">{{this.title}}</option>
 
 {{/each}}</select>
+</li>
 
+<li>
 <label for="">Favorite Song: </label>
-<select class="input-bg" name="" id="">
-<option value="{{songs._id}}"></option>
-</select>
+<select class="center-content input-bg" name="favoriteSong" id="">
+{{#each songs}}
+
+<option class="center-content input-bg" value="{{this.-id}}">{{this.title}}</option>
+
+{{/each}}</select>
+</li>
+
+<li>
 
 <label for="">Picture</label>
-<input class="input-bg" type="text" name="image">
+<input class="center-content input-bg" type="text" name="image">
+</li>
 
+<li>
 
 <label for="">Hometown: </label>
-<input class="input-bg" type="text" name="homeTown">
+<input class="center-content input-bg" type="text" name="homeTown">
+</li>
 
 <br><br><br><br>
+</ul>
 
 
 <button class="input-bg page-links">Create an Account</button>
