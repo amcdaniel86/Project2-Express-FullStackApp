@@ -3,6 +3,13 @@
 
 </div>
 
+<h2 class="page-links">
+<button class=" header-add add-button page-links input-bg">
+
+<a href="/album-new">Add Album</a>
+</button>
+</h2>
+
 <br><br><br><br>
 {{#each albums}}
 
@@ -23,6 +30,8 @@
 <img src="{{this.image}}" style="width: 100px" alt=""><br><br>
 <a href="/albums/{{this._id}}/details">More Details</a><br><br>
 <a href="/albums/{{this._id}}/edit">Edit This Album</a><br><br>
+
+
 <h6>
 <form action="/albums/{{this._id}}/delete" method="Post">
 <button class="input-bg">Delete</button>
@@ -34,12 +43,26 @@
 
 {{/each}}
 <br><br>
-<h2>
+
+<div class="footer-bg">
+
+<h2 class="page-links">
+<button class="add-button page-links input-bg">
+
 <a href="/album-new">Add Album</a>
+</button>
 </h2>
 
+<ul class="page-links">
+
 <a href="/profile">Profile</a><br><br>
+<a href="/profile-edit">Edit Profile</a>
+<br><br>
+<a href="/artists">Artists</a>
+<br><br>
 <a href="/">Home</a>
+</ul>
+</div>
 {{!-- name sections in input must match below from each model --}}
 {{!-- name: String, 
   genre: {type: Schema.Types.ObjectId, ref: 'Artist'},

@@ -4,8 +4,11 @@
 <h1 class="welcome-header">Edit {{user.username}}</h1>
 </div>
 <br><br><br><br><br>
+
+
 <form action="users/{{user._id}}/profile-edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
+<ul class="edit-content">
 
 <label>First Name: </label>
 <input class="input-bg" type="text" name="firstName" value="{{user.firstName}}">
@@ -29,7 +32,8 @@
 
 <option value="{{this._id}}">{{this.name}}
 </option>
-{{/each}}</select>
+{{/each}}
+</select>
 
 
 <label>Favorite Album: </label>
@@ -43,17 +47,24 @@
 <label>Favorite Song: </label>
 <input class="input-bg" type="text" name="homeTown" value="{{user.favoriteSong}}">
 
+</ul>
 
-<button class="input-bg" >Submit</button>
+<button class="input-bg">Submit</button>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 
 
 </form>
 
 <br>
+
+<div class="footer-bg">
+
+<ul class="page-links">
 <a href="/profile">Profile</a>
 <br><br>
 <a href="/">Home</a>
+</ul>
+</div>
 {{!-- {{user.bio}}
 
 {{user.favoriteArtist}}

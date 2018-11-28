@@ -3,6 +3,10 @@
 
 </div>
 
+<h2 class="page-links">
+<a href="/artist-new">Add Artist</a>
+</h2>
+
 <br><br><br><br><br>
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
@@ -11,42 +15,51 @@
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
 <label>Name</label>
-<input type="text" name="name">
+<input class="input-bg" type="text" name="name">
 {{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
 
 <label>Genre</label>
-<input type="text" name="genre">
+<input class="input-bg" type="text" name="genre">
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
 <label>Albums</label>
-<select name="album" id="">
+<select class="input-bg" name="album" id="">
 {{#each allAlbums}}
 
-<option value="{{this._id}}">{{this.album}}</option>
+<option class="input-bg" value="{{this._id}}">{{this.album}}</option>
 
 {{/each}}
 
  </select>
 <br><br>
 <label>Hometown</label>
-<input type="text" name="hometown">
+<input class="input-bg" type="text" name="hometown">
 
-<select name="rating" id="">
+<select class="input-bg" name="rating" id="">
   <option value="">Excellent</option>
   <option value="">Average</option>
   <option value="">Mediocre</option>
 </select>
 
-
-<button>Submit</button>
+<br><br>
+<button class="input-bg page-links">Submit</button>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 <br><br>
+
+<div class="footer-bg">
+
+<ul class="page-links">
+
 <a href="/profile">Profile</a><br><br>
+<a href="/artists">Back to Artists</a>
+<a href="/albums">Albums</a>
 <a href="/">Home</a>
+</ul>
 
 
 </form>
+</div>
 
 {{!-- name sections in input must match below from each model --}}
 {{!-- USER MUST BE LOGGED IN TO ADD ARTIST OR ALBUM --}}

@@ -127,7 +127,7 @@ router.get('/profile-edit', (req, res, next)=>  {
     });
 });
 
-router.post('/profile/edit', (req, res, next)=>{
+router.post('/profile/:id/edit', (req, res, next)=>{
   const infoFromProfileEdit = {
         username: req.body.username,
         firstName: req.body.firstName,
@@ -144,7 +144,7 @@ router.post('/profile/edit', (req, res, next)=>{
             res.redirect('/profile');
         })
         .catch((err)=>{
-          next(err);
+            res.redirect('/profile-edit')
         })
 });
 
