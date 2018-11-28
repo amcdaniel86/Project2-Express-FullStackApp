@@ -1,6 +1,12 @@
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
 
+<div class="header-bg">
+<h1 class="welcome-header">Edit {{album.title}}</h1>
+
+</div>
+
+<br><br><br><br><br>
 <form action="albums/:id/album-edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
@@ -35,5 +41,11 @@
 
 </form>
 
+<br>
+<a href="/albums">Back to Albums</a><br>
+<br>
+<a href="/profile">Profile</a>
+<br><br>
+<a href="/">Home</a>
 {{!-- name sections in input must match below from each model --}}
 {{!-- USER MUST BE LOGGED IN TO EDIT ARTIST OR ALBUM --}}
