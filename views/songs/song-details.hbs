@@ -1,0 +1,54 @@
+
+<div class="header-bg">
+<h1 class="welcome-header">{{song.title}}</h1>
+</div>
+
+<br><br><br><br>
+{{#each songs}}
+<h2>
+{{this.title.name}}
+</h2>
+{{/each}}
+
+<h3>
+{{song.genre}}
+</h3>
+
+<p>
+{{song.producer}} <br>
+</p>
+
+<p>
+{{song.rating}}
+</p>
+
+<p>
+
+</p>
+
+
+<img src="{{image}}" alt="" style="width: 300px">
+
+<a href="/song-edit">Edit Song</a>
+
+<form action="/songs/{{_id}}/delete" method="POST">
+  
+ <h4>
+ <button class="input-bg">Delete This Song</button>
+ </h4> 
+  
+</form>
+
+<div class="footer-bg">
+
+<ul class="page-links">
+
+<br>
+<a href="/profile">Profile</a><br><br>
+<a href="/songs">Back to Songs</a><br><br>
+<a href="/artists">Artists</a>
+<a href="/albums">Albums</a>
+<a href="/login">Log In</a>
+</ul>
+<a class="page-links" href="/register">Sign Up</a>
+</div>

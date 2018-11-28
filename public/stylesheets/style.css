@@ -4,10 +4,11 @@ body {
   margin: 0 auto;
   color: white;
   background-image: url("/images/abstract-bg.jpg");
-  background-size: 100%; }
+  background-attachment: fixed; }
 
 a {
-  color: #7dc7e4; }
+  color: #d3e0e6;
+  text-decoration: line-through; }
 
 ul {
   list-style: none; }

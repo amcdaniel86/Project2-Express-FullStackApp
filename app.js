@@ -9,7 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 // all these consts are importing packages that are listed in package.json. they're installed, and above a variable is created, so the package can be used.
-// no ponit in making variables for a package that hasn't been installed. if something is here that isn't listed in package.json, then you need to run (npm install --save [package.name])
+// no point in making variables for a package that hasn't been installed. if something is here that isn't listed in package.json, then you need to run (npm install --save [package.name])
 // cross check between package.json and app.js to ensure all correct packages are installed.
 // npm install takes all modules from package.json and puts then in node_modules folder.
 // when an express app is ran, app.js is the file that runs.
@@ -29,7 +29,6 @@ require('./config/passport-stuff.js');
 // this line brings in all the stuff from the passport.js file in the config folder.
 
 mongoose
-// .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
@@ -114,6 +113,9 @@ app.use('/', userRoutes);
 
 const albumRoutes = require('./routes/album-routes');
 app.use('/', albumRoutes);
+
+const songRoutes = require('./routes/song-routes');
+app.use('/', songRoutes);
 
 module.exports = app;
 

@@ -22,7 +22,7 @@ router.get('/songs/:id/details', (req, res, next)=>{
     Song.findById(songId)
     .then((song) => {
         console.log(song)
-        res.render("songs/song-details", { album })
+        res.render("songs/song-details", { song })
       })
       .catch(err => {
         console.log(err);
@@ -32,14 +32,14 @@ router.get('/songs/:id/details', (req, res, next)=>{
 // Add Song to Database
 router.get('/song-new', (req, res, next) => {
   Artist.find()
-      .then((allArtists)=>{
+      .then((allAlbums)=>{
         res.render("songs/song-new", {albums: allAlbums});
       })
       .catch((err)=>{
         next(err);
       })
 });
-// dropdown example here
+// dropdown example above here
 
 router.post('/song-new', (req, res, next) => {
       if(!req.user) {

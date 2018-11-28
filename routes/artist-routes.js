@@ -40,7 +40,6 @@ router.get('/artists/:id/details', (req, res, next)=>{
 // Add Artist to Database
 router.get('/artist-new', (req, res, next) => {
     res.render("artists/artist-new");
-
 //   Album.find()
 //       .then((allTheAlbums)=>{
 //         res.render("artists/artist-new"); {message: req.flash("error"), artists: allTheArtists, albums: allTheAlbums} );
@@ -49,7 +48,6 @@ router.get('/artist-new', (req, res, next) => {
 //         next(err);
 //       })
 });
-
 router.post('/artist-new', (req, res, next) => {
     if(!req.user) {
       res.locals.message = "Error: You must be logged in to add to database.";

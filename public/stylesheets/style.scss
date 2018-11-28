@@ -4,11 +4,13 @@ body {
   margin: 0 auto;
   color: white;
   background-image: url("/images/abstract-bg.jpg");
-  background-size: 100%;
+  background-attachment: fixed;
 }
 
 a {
-  color: rgb(125, 199, 228);
+  color: rgb(211, 224, 230);
+  text-decoration: line-through;
+
 }
 
 ul {
