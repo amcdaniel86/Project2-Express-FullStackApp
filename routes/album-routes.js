@@ -63,6 +63,7 @@ router.post('/albums/:id/delete', (req, res, next)=>{
 router.get('/albums/:id/edit', (req, res, next)=>{
   Album.findById(req.params.id)
     .then((album)=>{
+
       res.render('albums/album-edit', { album })
     })
     .catch((err)=>{
@@ -71,9 +72,20 @@ router.get('/albums/:id/edit', (req, res, next)=>{
 });
 
 router.post('/albums/:id/edit', (req, res, next)=>{
-  Album.findByIdAndUpdate(req.params.id, req.body)
-    .then(()=>{
-      res.redirect('/albums/albums');
+  if(!req.user) {
+    req.flash("error", "You must be logged in to edit an artist.");
+    res.redirect("/login");
+    return;
+  }
+  Album.findById(req.params.id)
+    .then((artist)=>{
+      Album.find()
+      .then((allTheAlbums)=>{
+        res.render('artists/artist-edit', {artist, message: req.flash("error"), albums: allTheAlbums} );
+      })
+      .catch((err)=>{
+        next(err);
+      })
     })
     .catch((err)=>{
       next(err);

@@ -10,8 +10,8 @@
 <div class="center-content">
 
 {{user.homeTown}}
-{{user.favoriteArtist}}
-{{user.favoriteAlbum}}
+{{user.favoriteArtist.name}}
+{{user.favoriteAlbum.title}}
 {{user.favoriteSong}}
 {{user.image}}
 <br><br>
@@ -35,7 +35,10 @@
     <a href="/">Home</a>
     <br><br>
     </ul>
-    <ul class="page-links">
-    <a href="/logout">Logout</a>
-    </ul>
+    <h2 class="page-links">
+<button class="add-button page-links input-bg">
+
+<a href="/logout">Log Out</a>
+</button>
+</h2>
 </div>

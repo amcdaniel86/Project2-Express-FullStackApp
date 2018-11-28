@@ -127,9 +127,8 @@ router.get('/profile-edit', (req, res, next)=>  {
     });
 });
 
-router.post('/profile/:id/edit', (req, res, next)=>{
+router.post('/profile/:id/profile-edit', (req, res, next)=>{
   const infoFromProfileEdit = {
-        username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         bio: req.body.bio,
@@ -151,10 +150,10 @@ router.post('/profile/:id/edit', (req, res, next)=>{
 
 router.get("/profile", (req, res, next)=>{
   if(!req.user) {
-    req.flash("error", "sorry, you must be logged in.")
+    req.flash("error", "Sorry, you must be logged in for access")
     res.redirect('/login');
   }
-  User.findById(req.user.id)
+  User.findById(req.user.id).populate("favoriteArtist").populate("favoriteAlbum")
   .then((user)=>{
       if(!req.user._id.equals(user._id)){
         req.logout();

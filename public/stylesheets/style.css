@@ -48,6 +48,9 @@ a {
 .page-links a {
   margin: 5%; }
 
+.page-links button {
+  margin: 10%; }
+
 .footer-bg {
   background: rgba(22, 22, 22, 0.8);
   position: relative;

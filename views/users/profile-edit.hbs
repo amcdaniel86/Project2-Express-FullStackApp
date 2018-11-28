@@ -6,7 +6,7 @@
 <br><br><br><br><br>
 
 
-<form action="users/{{user._id}}/profile-edit" method="POST">
+<form action="/profile/{{user._id}}/profile-edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 <ul class="edit-content">
 
@@ -27,7 +27,7 @@
 
 
 <label>Favorite Artist: </label>
-<select class="input-bg" name="" id="">
+<select class="input-bg" name="favoriteArtist" id="">
 {{#each artists}}
 
 <option value="{{this._id}}">{{this.name}}
@@ -37,7 +37,7 @@
 
 
 <label>Favorite Album: </label>
-<select class="input-bg" name="" id="">
+<select class="input-bg" name="favoriteAlbum" id="">
 {{#each albums}}
 
 <option value="{{this._id}}">{{this.title}}</option>

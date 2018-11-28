@@ -77,7 +77,13 @@ router.get('/artists/:id/edit', (req, res, next)=>{
   }
   Artist.findById(req.params.id)
     .then((artist)=>{
-      res.render('artists/artist-edit', {artist})
+      Album.find()
+      .then((allTheAlbums)=>{
+        res.render('artists/artist-edit', {artist, message: req.flash("error"), albums: allTheAlbums} );
+      })
+      .catch((err)=>{
+        next(err);
+      })
     })
     .catch((err)=>{
       next(err);
