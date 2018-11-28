@@ -23,15 +23,7 @@
 <input class="input-bg" type="text" name="genre">
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
-<label>Albums</label>
-<select class="input-bg" name="album" id="">
-{{#each allAlbums}}
 
-<option class="input-bg" value="{{this._id}}">{{this.album}}</option>
-
-{{/each}}
-
- </select>
 <br><br>
 <label>Hometown</label>
 <input class="input-bg" type="text" name="hometown">

@@ -22,12 +22,14 @@
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
 <label for="">Artist </label>
-<select class="input-bg" name="artist" id="">
+<select class="input-bg" name="favoriteArtist" id="">
 {{#each artists}}
 
-<option class="input-bg" value="{{artist._id}}">{{this.name}}</option>
-
-{{/each}}</select>
+<option value="{{this._id}}">{{this.name}}
+</option>
+{{/each}}
+</select>
+{{!-- dropdown example above --}}
 
 <label>Songs</label>
 <select class="input-bg" name="song" id="">
@@ -38,7 +40,7 @@
 {{/each}}
 
  </select>
-
+<br><br>
 <label>Release Date: </label>
 <input class="input-bg" type="text" name="releaseDate">
 

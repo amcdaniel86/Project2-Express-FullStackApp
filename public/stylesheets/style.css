@@ -9,6 +9,9 @@ body {
 a {
   color: #7dc7e4; }
 
+ul {
+  list-style: none; }
+
 .header-bg {
   background: rgba(22, 22, 22, 0.8);
   position: absolute;
@@ -22,8 +25,9 @@ a {
 
 .center-content {
   display: flex;
-  justify-content: center;
-  position: relative; }
+  align-items: center;
+  position: relative;
+  flex-direction: column; }
 
 .add-button {
   display: flex;
@@ -58,14 +62,12 @@ a {
 .footer-bg {
   background: rgba(22, 22, 22, 0.8);
   position: relative;
-  margin-top: 10%;
+  margin: 10% 0;
   width: 100%;
-  height: 20%;
-  border-radius: 10%; }
+  border-radius: 20%; }
 
 .footer {
   position: relative;
-  bottom: 10%;
   align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

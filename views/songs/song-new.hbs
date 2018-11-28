@@ -1,0 +1,84 @@
+<div class="header-bg">
+<h1 class="welcome-header">Add New Song to our database</h1>
+
+</div>
+
+<button class=" add-button page-links input-bg">Add Song</button>
+
+<br><br><br><br><br><br><br><br><br><br>
+{{!-- how do we make it easy for the user to submit a post request? --}}
+{{!-- how do we control the post request? --}}
+
+<form action="/song-new" method="POST">
+{{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
+
+<label>Title</label>
+<input class="input-bg" type="text" name="title">
+{{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
+
+
+<label>Genre</label>
+<input class="input-bg" type="text" name="genre">
+{{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
+
+<label for="">Artist</label>
+<select class="input-bg" name="artist" id="">
+{{#each artists}}
+
+<option value="{{this._id}}">{{this.name}}
+</option>
+{{/each}}
+</select>
+{{!-- dropdown example above --}}
+
+<label>Album</label>
+<select class="input-bg" name="title" id="">
+{{#each albums}}
+
+<option class="input-bg" value="{{this._id}}">{{this.title}}</option>
+
+{{/each}}
+
+ </select>
+<br><br>
+<label>Producer: </label>
+<input class="input-bg" type="text" name="producer">
+
+
+<select class="input-bg" name="rating" id="">
+  <option value="">5 stars</option>
+  <option value="">4 stars</option>
+  <option value="">3 stars</option>
+  <option value="">2 stars</option>
+  <option value="">1 stars</option>
+</select>
+
+
+<button class="input-bg">Submit</button>
+{{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
+
+
+</form>
+<br>
+
+<div class="footer-bg">
+
+<ul class="page-links">
+
+<a href="/profile">Profile</a>
+<br><br>
+<a href="/songs">Back to Songs</a>
+<a href="/albums">Albums</a>
+<a href="/artists">Artists</a>
+<a href="/">Home</a>
+</ul>
+</div>
+{{!-- name sections in input must match below from each model --}}
+
+{{!-- USER MUST BE LOGGED IN TO ADD ARTIST OR ALBUM --}}
+
+{{!-- title: String,
+  genre: String,
+  album: [{type: Schema.Types.ObjectId}],
+  producer: String,
+  rating: Number --}}

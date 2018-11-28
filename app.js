@@ -29,6 +29,7 @@ require('./config/passport-stuff.js');
 // this line brings in all the stuff from the passport.js file in the config folder.
 
 mongoose
+// .connect(process.env.MONGODB_URI, {useMongoClient: true}) 
   .connect('mongodb://localhost/project2-am', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)

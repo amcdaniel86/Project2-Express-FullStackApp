@@ -13,9 +13,13 @@
 
 
 {{#each artists}}
+<ul class="input-bg page-links">
 
-<h3>{{this.name}}</h3>
+<h3>{{this.name}} - </h3> 
+<br><br><br>
 <h3>{{this.image}}</h3>
+<h3>- {{this.hometown}}</h3>
+</ul>
 
 <form action="">
 {{#each albums}}
@@ -26,14 +30,13 @@
 </form>
 
 
-
-<h3>{{this.hometown}}</h3>
-
-<p>{{this.rating}}</p>
-
 <img src="{{this.image}}" style="width: 100px" alt="">
+
+<ul class="page-links">
+
 <a href="/artists/{{this._id}}/details">More Details</a><br><br>
 <a href="/artists/{{this._id}}/edit">Edit This Artist</a> <br><br>
+</ul>
 
 <h6>
 <form action="/artists/{{this._id}}/delete" method="Post">
@@ -45,7 +48,6 @@
 
 <div class="footer-bg">
 
-<br><br><br>
 <h2 class="page-links">
 <button class="add-button page-links input-bg">
 

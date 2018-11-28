@@ -6,16 +6,23 @@
 </div>
 
 <br><br><br><br><br><br><br><br>
-<form action="/login" method="POST">
+<form class="center-content" action="/login" method="POST">
 
+<ul class="center-content">
+
+<li>
 
 <label for="">Username: </label>
 <input class="input-bg" type="text" name="username" required>
-
+</li>
+<br>
+<li>
 
 <label for="">Password: </label>
 <input class="input-bg" type="text" name="password" required>
+</li>
 
+</ul>
 {{!-- create config folder in root directory for passport stuff. put them in passport-stuff.js file. --}}
 <br><br>
 <button class="input-bg page-links">Log In</button>
@@ -56,3 +63,5 @@
 </div>
 
 </form>
+
+{{!-- artists, albums, home on login page turn into equalizer look, with art and album as slider. --}}

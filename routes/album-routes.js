@@ -30,8 +30,15 @@ router.get('/albums/:id/details', (req, res, next)=>{
 
 // Add Album to Database
 router.get('/album-new', (req, res, next) => {
-    res.render("albums/album-new");
+  Artist.find()
+      .then((allArtists)=>{
+        res.render("albums/album-new", {artists: allArtists});
+      })
+      .catch((err)=>{
+        next(err);
+      })
 });
+// dropdown example here
 
 router.post('/album-new', (req, res, next) => {
       if(!req.user) {
@@ -63,7 +70,7 @@ router.post('/albums/:id/delete', (req, res, next)=>{
 router.get('/albums/:id/edit', (req, res, next)=>{
   Album.findById(req.params.id)
     .then((album)=>{
-
+console.log('=-=-=-=-=-=-=-=', album)
       res.render('albums/album-edit', { album })
     })
     .catch((err)=>{
