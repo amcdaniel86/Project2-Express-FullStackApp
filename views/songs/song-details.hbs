@@ -22,21 +22,16 @@
 {{song.rating}}
 </p>
 
-<p>
-
-</p>
-
-
 <img src="{{image}}" alt="" style="width: 300px">
+<br>
+<a href="/songs/{{song._id}}/edit">Edit This Song</a> <br><br>
+</ul>
 
-<a href="/song-edit">Edit Song</a>
 
-<form action="/songs/{{_id}}/delete" method="POST">
-  
+<form action="/songs/{{song._id}}/delete" method="POST">
  <h4>
  <button class="input-bg">Delete This Song</button>
  </h4> 
-  
 </form>
 
 <div class="footer-bg">

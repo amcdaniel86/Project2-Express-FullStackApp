@@ -39,6 +39,11 @@ router.get('/artists/:id/details', (req, res, next)=>{
 
 // Add Artist to Database
 router.get('/artist-new', (req, res, next) => {
+  if(!req.user) {
+    req.flash("error", "You must be logged in to add an artist.");
+    res.redirect("/login");
+    return;
+  }
     res.render("artists/artist-new");
 //   Album.find()
 //       .then((allTheAlbums)=>{
@@ -65,9 +70,14 @@ router.post('/artist-new', (req, res, next) => {
 
 // Delete Artist from Database
 router.post('/artists/:id/delete', (req, res, next)=>{
-  Artists.findByIdAndRemove(req.params.id)
+  if(!req.user) {
+    req.flash("error", "You must be logged in to delete an artist.");
+    res.redirect("/login");
+    return;
+  }
+  Artist.findByIdAndRemove(req.params.id)
     .then(()=>{
-      res.redirect('/artists/artist-list');
+      res.redirect('/artists');
     })
     .catch((err)=>{
       next(err);

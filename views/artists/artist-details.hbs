@@ -8,9 +8,9 @@
 
 <br><br><br><br>
 <div class="content-placing">
-{{#each artist.album}}
+{{#each artists}}
 <h2>
-{{this.title}}
+{{artist.name}}
 </h2>
 {{/each}}
 
@@ -29,14 +29,19 @@
 
 
 <img src="{{image}}" alt="" style="width: 300px">
+<br>
+<a href="/artists/{{artist._id}}/edit">Edit This Artist</a> <br><br>
+</ul>
 
-<form action="/artists/{{_id}}/delete" method="POST">
-  
+
+<form action="/artists/{{artist._id}}/delete" method="POST">
  <h4>
  <button class="input-bg">Delete This Artist</button>
  </h4> 
-  
 </form>
+  
+
+  
  
  <div class="footer-bg">
 

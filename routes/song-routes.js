@@ -31,6 +31,11 @@ router.get('/songs/:id/details', (req, res, next)=>{
 
 // Add Song to Database
 router.get('/song-new', (req, res, next) => {
+  if(!req.user) {
+    req.flash("error", "You must be logged in to add a song.");
+    res.redirect("/login");
+    return;
+  }
   Artist.find()
       .then((allAlbums)=>{
         res.render("songs/song-new", {albums: allAlbums});
@@ -49,6 +54,7 @@ router.post('/song-new', (req, res, next) => {
         // req.body.user = req.user_id;
     Song.create(req.body)
       .then(()=>{
+        console.log("-=-=-=-=-=-=-", req.body);
           res.redirect('/songs');
       })
       .catch(()=>{
@@ -58,6 +64,11 @@ router.post('/song-new', (req, res, next) => {
 
 // Delete Song from Database
 router.post('/songs/:id/delete', (req, res, next)=>{
+  if(!req.user) {
+    req.flash("error", "You must be logged in to delete a song.");
+    res.redirect("/login");
+    return;
+  }
   Song.findByIdAndRemove(req.params.id)
     .then(()=>{
       res.redirect('/songs');
@@ -69,6 +80,11 @@ router.post('/songs/:id/delete', (req, res, next)=>{
 
 // Edit Song in Database
 router.get('/songs/:id/edit', (req, res, next)=>{
+    if(!req.user) {
+    req.flash("error", "You must be logged in to edit a song.");
+    res.redirect("/login");
+    return;
+  }
   Song.findById(req.params.id)
     .then((song)=>{
 console.log('=-=-=-=-=-=-=-=', song)
@@ -81,24 +97,34 @@ console.log('=-=-=-=-=-=-=-=', song)
 
 router.post('/songs/:id/edit', (req, res, next)=>{
   if(!req.user) {
-    req.flash("error", "You must be logged in to edit an artist.");
+    req.flash("error", "You must be logged in to edit an song.");
     res.redirect("/login");
     return;
   }
-  Song.findById(req.params.id)
-    .then((artist)=>{
-      Artist.find()
-      .then((allTheArtists)=>{
-        res.render('songs/song-edit', {artist, message: req.flash("error"), albums: allTheArtists} );
-      })
-      .catch((err)=>{
-        next(err);
-      })
+  Song.findByIdAndUpdate(req.params.id, req.body)
+    .then(()=>{
+      res.redirect('/songs');
     })
     .catch((err)=>{
       next(err);
     })
-});
+  });
+  // // router.post('/songs/:id/edit', (req, res, next)=>{
+  //   Song.findByIdAndUpdate(req.params.id, req.body)
+  //     .then(()=>{
+  //       res.redirect('/artists');
+  //     })
+  //     .catch((err)=>{
+  //       next(err);
+  //     })
+  // });
+  // Artist.find()
+  // .then((allTheArtists)=>{
+  //   res.render('songs/song-edit', {artist, message: req.flash("error"), albums: allTheArtists} );
+  // })
+  // .catch((err)=>{
+  //   next(err);
+  // })
 
 
 

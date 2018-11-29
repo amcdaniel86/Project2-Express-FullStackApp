@@ -30,6 +30,11 @@ router.get('/albums/:id/details', (req, res, next)=>{
 
 // Add Album to Database
 router.get('/album-new', (req, res, next) => {
+  if(!req.user) {
+    req.flash("error", "You must be logged in to add an album.");
+    res.redirect("/login");
+    return;
+  }
   Artist.find()
       .then((allArtists)=>{
         res.render("albums/album-new", {artists: allArtists});
@@ -57,6 +62,11 @@ router.post('/album-new', (req, res, next) => {
 
 // Delete Album from Database
 router.post('/albums/:id/delete', (req, res, next)=>{
+  if(!req.user) {
+    req.flash("error", "You must be logged in to delete an album.");
+    res.redirect("/login");
+    return;
+  }
   Album.findByIdAndRemove(req.params.id)
     .then(()=>{
       res.redirect('/albums');
@@ -67,7 +77,12 @@ router.post('/albums/:id/delete', (req, res, next)=>{
 });
 
 // Edit Album in Database
-router.get('/albums/:id/edit', (req, res, next)=>{
+router.get('/albums/:id/edit', (req, res, next)=>{ 
+  if(!req.user) {
+  req.flash("error", "You must be logged in to edit an album.");
+  res.redirect("/login");
+  return;
+}
   Album.findById(req.params.id)
     .then((album)=>{
 console.log('=-=-=-=-=-=-=-=', album)

@@ -5,27 +5,40 @@
 </div>
 <br><br><br><br><br>
 
+<ul class="signup-boxes">
+
 
 <form action="/profile/{{user._id}}/profile-edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 <ul class="edit-content">
 
+<li>
+
 <label>First Name: </label>
 <input class="input-bg" type="text" name="firstName" value="{{user.firstName}}">
+</li>
 {{!-- each input controls what the user is allowed inside the post request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
+<li>
 
 <label>Last Name: </label>
 <input class="input-bg" type="text" name="lastName" value="{{user.lastName}}">
+</li>
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
+
+<li>
 
 <label>Bio: </label>
 <textarea class="input-bg" name="bio" cols="30" rows="10" value="{{user.bio}}"></textarea>
+</li>
+
+<li>
 
 <label>Hometown: </label>
 <input class="input-bg" type="text" name="homeTown" value="{{user.homeTown}}">
+</li>
 
-
+<li>
 <label>Favorite Artist: </label>
 <select class="input-bg" name="favoriteArtist" id="">
 {{#each artists}}
@@ -34,7 +47,9 @@
 </option>
 {{/each}}
 </select>
+</li>
 
+<li>
 
 <label>Favorite Album: </label>
 <select class="input-bg" name="favoriteAlbum" id="">
@@ -43,7 +58,9 @@
 <option value="{{this._id}}">{{this.title}}</option>
 {{/each}}
 </select>
+</li>
 
+<li>
 
 <label>Favorite Song: </label>
 <select class="input-bg" name="favoriteSong" id="">
@@ -52,8 +69,15 @@
 <option value="{{this._id}}">{{this.title}}</option>
 {{/each}}
 </select>
+</li>
 
-<button class="input-bg ">Submit</button>
+<li>
+<br>
+
+<button class="input-bg page-links">Submit</button>
+</li>
+
+</ul>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 
 

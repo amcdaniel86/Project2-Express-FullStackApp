@@ -2,49 +2,64 @@
 {{!-- how do we control the post request? --}}
 
 <div class="header-bg">
-<h1 class="welcome-header">Edit {{album.title}}</h1>
+<h1 class="welcome-header">Edit {{song.title}}</h1>
 
 </div>
 
-<br><br><br><br><br>
-<form action="albums/:id/album-edit" method="POST">
+<ul class="signup-boxes">
+
+<br><br><br><br><br><br><br>
+<form action="songs/{{song._id}}/edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
+<li>
+
 <label>Title</label>
-<input class="input-bg" type="text" value="{{album.title}}" name="title">
+<input class="input-bg" type="text" value="{{song.title}}" name="title">
+</li>
 {{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
+<li>
 
 <label>Genre</label>
-<input class="input-bg" type="text" value="{{album.genre}}" name="genre">
+<input class="input-bg" type="text" value="{{song.genre}}" name="genre">
+</li>
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
+<li>
 
 <label for="">Artist</label>
-<select class="input-bg" name="favoriteArtist" id="">
+<select class="input-bg" name="artist" id="">
 {{#each artists}}
 
 <option value="{{this._id}}">{{this.name}}
 </option>
 {{/each}}
 </select>
+</li>
 
-<label>Songs</label>
-<input class="input-bg" type="{{this._id}}" name="album">
 
-<label>Release Date: </label>
-<input class="input-bg" type="date" name="releaseDate">
 
-<label>Sales</label>
-<input class="input-bg" type="number" name="sales">
+<li>
+
+<label>Producer: </label>
+<input class="input-bg" type="text" name="producer">
+</li>
+
+<li>
 
 <select class="input-bg" name="rating" id="">
-  <option value="">Excellent</option>
-  <option value="">Average</option>
-  <option value="">Mediocre</option>
+  <option value="">5 stars</option>
+  <option value="">4 stars</option>
+  <option value="">3 stars</option>
+  <option value="">2 stars</option>
+  <option value="">1 stars</option>
 </select>
+</li>
 
+<li>
 
-<button class="input-bg" >Submit</button>
+<button class="input-bg">Submit</button>
+</li>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 
 
@@ -55,6 +70,7 @@
 <ul class="page-links">
 
 <br>
+<a href="/songs/{{song._id}}/details">Back to Details</a>
 <a href="/profile">Profile</a>
 <br>
 <a href="/songs">Back to Songs</a><br>

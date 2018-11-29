@@ -11,31 +11,46 @@
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
 
+<ul class="signup-boxes">
+
 <form action="/artist-new" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
 
+<li>
+
 <label>Name</label>
 <input class="input-bg" type="text" name="name">
+</li>
 {{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
+<li>
 
 <label>Genre</label>
 <input class="input-bg" type="text" name="genre">
+</li>
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
 
-<br><br>
+<li>
+
 <label>Hometown</label>
 <input class="input-bg" type="text" name="hometown">
+</li>
+
+<li>
 
 <select class="input-bg" name="rating" id="">
   <option value="">Excellent</option>
   <option value="">Average</option>
   <option value="">Mediocre</option>
 </select>
+</li>
 
 <br><br>
+<li>
+
 <button class="input-bg page-links">Submit</button>
+</li>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 <br><br>
 
