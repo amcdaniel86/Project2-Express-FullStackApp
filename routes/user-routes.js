@@ -16,18 +16,32 @@ const passport = require('passport');
 router.get('/register', (req, res, next)=>{
   Artist.find()
     .then((allTheArtists)=>{
+      Album.find()
+        .then((allTheAlbums)=>{
+          Song.find()
+            .then((allTheSongs)=>{
+              res.render('users/signup-page', {
+                message: req.flash("error"), artists: allTheArtists,
+                albums: allTheAlbums,
+                songs: allTheSongs
+                })
+              })
 
-  Album.find()
-      .then((allTheAlbums)=>{
-        res.render('users/signup-page', {message: req.flash("error"), artists: allTheArtists, albums: allTheAlbums} );
-      })
-      .catch((err)=>{
-        next(err);
-      })
+            })
+            .catch((err)=>{
+              next(err);
+            })
+
+        })
+        .catch((err)=>{
+          next(err);
+        })
+
+    .catch((err)=>{
+      next(err);
     })
-  
-});
-
+  });
+     
 // to sign up, WE ARE ADDING SOMETHING TO THE DATABASE. must check with if statement if user exists already in the database.
 router.post('/register', (req, res, next)=> {
       const theUsername = req.body.username;

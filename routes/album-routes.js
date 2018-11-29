@@ -85,7 +85,6 @@ router.get('/albums/:id/edit', (req, res, next)=>{
 }
   Album.findById(req.params.id)
     .then((album)=>{
-console.log('=-=-=-=-=-=-=-=', album)
       res.render('albums/album-edit', { album })
     })
     .catch((err)=>{
@@ -99,15 +98,10 @@ router.post('/albums/:id/edit', (req, res, next)=>{
     res.redirect("/login");
     return;
   }
-  Album.findById(req.params.id)
-    .then((artist)=>{
-      Artist.find()
-      .then((allTheArtists)=>{
-        res.render('albums/album-edit', {artist, message: req.flash("error"), albums: allTheArtists} );
-      })
-      .catch((err)=>{
-        next(err);
-      })
+  // params looks at id in the url. req.body takes info from the input fields on the form in the post handlebar view.
+  Album.findByIdAndUpdate(req.params.id, req.body)
+    .then(()=>{
+        res.redirect('/albums');
     })
     .catch((err)=>{
       next(err);

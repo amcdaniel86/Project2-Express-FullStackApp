@@ -7,8 +7,13 @@
 </div>
 
 <br><br><br><br><br>
-<form action="albums/:id/album-edit" method="POST">
+
+<ul class="signup-boxes">
+
+<form action="/albums/{{album._id}}/edit" method="POST">
 {{!-- by putting method = post, we make it so when the user clicks the button on the bottom, it'll submit a post request to whichever url we put in the action property. --}}
+
+{{!-- DO NOT FORGET THE SLASH BEFORE THE PATH ON FORM ACTION FOR POST ROUTES --}}
 
 <label>Title</label>
 <input class="input-bg" type="text" value="{{album.title}}" name="title">

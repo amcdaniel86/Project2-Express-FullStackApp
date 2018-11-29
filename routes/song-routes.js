@@ -95,12 +95,8 @@ console.log('=-=-=-=-=-=-=-=', song)
     })
 });
 
+
 router.post('/songs/:id/edit', (req, res, next)=>{
-  if(!req.user) {
-    req.flash("error", "You must be logged in to edit an song.");
-    res.redirect("/login");
-    return;
-  }
   Song.findByIdAndUpdate(req.params.id, req.body)
     .then(()=>{
       res.redirect('/songs');
@@ -108,15 +104,23 @@ router.post('/songs/:id/edit', (req, res, next)=>{
     .catch((err)=>{
       next(err);
     })
-  });
-  // // router.post('/songs/:id/edit', (req, res, next)=>{
-  //   Song.findByIdAndUpdate(req.params.id, req.body)
-  //     .then(()=>{
-  //       res.redirect('/artists');
-  //     })
-  //     .catch((err)=>{
-  //       next(err);
-  //     })
+});
+
+
+// router.post('/songs/:id/edit', (req, res, next)=>{
+  // if(!req.user) {
+  //   req.flash("error", "You must be logged in to edit an song.");
+  //   res.redirect("/login");
+  //   return;
+  // }
+  // Song.findByIdAndUpdate(req.params._id, req.body)
+  //   .then(()=>{
+  //     console.log(req.body, '-=-=-=-=---=eeee');
+  //     res.redirect('/songs');
+  //   })
+  //   .catch((err)=>{
+  //     next(err);
+  //   })
   // });
   // Artist.find()
   // .then((allTheArtists)=>{

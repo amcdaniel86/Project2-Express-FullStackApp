@@ -45,13 +45,13 @@ router.get('/artist-new', (req, res, next) => {
     return;
   }
     res.render("artists/artist-new");
-//   Album.find()
-//       .then((allTheAlbums)=>{
-//         res.render("artists/artist-new"); {message: req.flash("error"), artists: allTheArtists, albums: allTheAlbums} );
-//       })
-//       .catch((err)=>{
-//         next(err);
-//       })
+  // Album.find()
+  //     .then((allTheAlbums)=>{
+  //       res.render("artists/artist-new"); {message: req.flash("error"), artists: allTheArtists, albums: allTheAlbums} );
+  //     })
+  //     .catch((err)=>{
+  //       next(err);
+  //     })
 });
 router.post('/artist-new', (req, res, next) => {
     if(!req.user) {

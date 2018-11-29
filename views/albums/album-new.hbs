@@ -28,6 +28,8 @@
 </li>
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
+<li>
+
 <label for="">Artist </label>
 <select class="input-bg" name="favoriteArtist" id="">
 {{#each artists}}
@@ -36,7 +38,10 @@
 </option>
 {{/each}}
 </select>
+</li>
 {{!-- dropdown example above --}}
+
+<li>
 
 <label>Songs</label>
 <select class="input-bg" name="song" id="">
@@ -47,24 +52,35 @@
 {{/each}}
 
  </select>
+</li>
+
 <br><br>
+
+<li>
+
 <label>Release Date: </label>
 <input class="input-bg" type="date" name="releaseDate">
+</li>
 
-
+<li>
 <label>Sales (millions)</label>
 <input class="input-bg" type="number" name="sales">
+</li>
 
 
+<li>
 
 <select class="input-bg" name="rating" id="">
   <option value="">Excellent</option>
   <option value="">Average</option>
   <option value="">Mediocre</option>
 </select>
+</li>
 
+<li>
 
 <button class="input-bg">Submit</button>
+</li>
 {{!-- by having a button inside a form, form will automatically submit when you click it, when form submits, it'll make whatever request you put in the method, and requst will be sent to the url put in the action. --}}
 
 
