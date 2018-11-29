@@ -4,6 +4,7 @@ const User    = require('../models/User');
 const bcrypt = require('bcryptjs');
 const Artist = require('../models/Artist');
 const Album  = require('../models/Album');
+const Song = require('../models/Song');
 // bcryptjs necessary in signup/login areas.
 
 const flash        = require('connect-flash');
@@ -120,21 +121,42 @@ router.post("/login", passport.authenticate("local", {
 //defined in app.js
 
 // Edit profile
-router.get('/profile-edit', (req, res, next)=>  {
-  User.findById(req.user.id)
+router.get('/:id/profile-edit', (req, res, next)=>  {
+  if(!req.user) {
+    req.flash("error", "You must be logged in to edit an artist.");
+    res.redirect("/login");
+    return;
+  }
+  User.findById(req.params.id)
     .then((user)=>{
       Artist.find()
-    .then((allTheArtists)=>{
-
-  Album.find()
-      .then((allTheAlbums)=>{
-        res.render('users/profile-edit', {message: req.flash("error"), artists: allTheArtists, albums: allTheAlbums, user: user} );
-      })
+      .then((allTheArtists)=>{
+        Album.find()
+          .then((allTheAlbums)=>{
+            Song.find()
+              .then((allTheSongs)=>{
+                res.render('users/profile-edit', {
+                  message: req.flash("error"), artists: allTheArtists,
+                  albums: allTheAlbums,
+                  songs: allTheSongs,
+                  user: user
+                  })
+                })
+  
+              })
+              .catch((err)=>{
+                next(err);
+              })
+  
+          })
+          .catch((err)=>{
+            next(err);
+          })
+  
       .catch((err)=>{
         next(err);
       })
-    })
-      console.log(user);
+    
     })
     .catch((err)=>{
       next(err);
