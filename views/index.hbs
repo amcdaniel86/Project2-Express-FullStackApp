@@ -1,26 +1,26 @@
 
-<div class="header-bg">
+<div class="profile-element header-element">
 <h1 class="welcome-header">Welcome to MusicTopia</h1>
 </div>
 
 <br><br><br><br><br>
 
-<div class="footer-bg">
+
 
       <ul class="page-links">
 
 
-      <a href="/login">Log In</a>
-
       {{#if user}}
       <a href="/users/{{user._id}}/profile">Your Profile</a>
 
-      <a href="/login">Log in</a>
-
-      <a href="/logout">Logout</a>
 
 
       {{/if}}
+      <div class="profile-element header-element">
+
+      <a href="/login">Log In</a>
+
+      <a href="/logout">Log Out</a>
 
       <a href="/artists">All Artists</a>
 
@@ -28,5 +28,5 @@
 
       <a href="/songs">All Songs</a>
       </ul>
-      <a href="/register">Sign Up/Register</a>
+      </div> 
 </div>

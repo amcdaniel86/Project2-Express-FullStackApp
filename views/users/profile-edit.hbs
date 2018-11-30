@@ -1,6 +1,6 @@
 {{!-- how do we make it easy for the user to submit a post request? --}}
 {{!-- how do we control the post request? --}}
-<div class="header-bg">
+<div class="profile-element header-element">
 <h1 class="welcome-header">Edit {{user.username}}</h1>
 </div>
 <br><br><br><br><br>
@@ -40,7 +40,7 @@
 
 <li>
 <label>Favorite Artist: </label>
-<select class="input-bg" name="favoriteArtist" id="">
+<select class="drop-down page-links add-button center-content input-bg" name="favoriteArtist" id="">
 {{#each artists}}
 
 <option value="{{this._id}}">{{this.name}}
@@ -52,7 +52,7 @@
 <li>
 
 <label>Favorite Album: </label>
-<select class="input-bg" name="favoriteAlbum" id="">
+<select class="drop-down page-links add-button center-content input-bg" name="favoriteAlbum" id="">
 {{#each albums}}
 
 <option value="{{this._id}}">{{this.title}}</option>
@@ -63,7 +63,7 @@
 <li>
 
 <label>Favorite Song: </label>
-<select class="input-bg" name="favoriteSong" id="">
+<select class="drop-down page-links add-button center-content input-bg" name="favoriteSong" id="">
 {{#each songs}}
 
 <option value="{{this._id}}">{{this.title}}</option>
@@ -85,7 +85,7 @@
 
 <br>
 
-<div class="footer-bg">
+<div class="profile-element header-element">
 
 <ul class="page-links">
 <a href="/profile">Profile</a>

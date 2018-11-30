@@ -21,7 +21,7 @@ ul {
   list-style: none; }
 
 .header-bg {
-  background: rgba(22, 22, 22, 0.8);
+  background: rgba(22, 22, 22, 0.6);
   position: absolute;
   color: white;
   width: 94%;
@@ -38,6 +38,20 @@ ul {
   position: relative;
   flex-direction: column; }
 
+.profile-element {
+  background-color: rgba(22, 22, 22, 0.6);
+  margin: 20px;
+  width: 100vw;
+  display: flex;
+  align-items: center; }
+
+.header-element {
+  justify-content: center;
+  border-radius: 10%; }
+
+.layout-footer {
+  text-decoration: line-through; }
+
 .signup-boxes li {
   margin: 2%; }
 
@@ -48,12 +62,15 @@ ul {
   width: 20%;
   color: white; }
 
+.drop-down {
+  width: 40%; }
+
 .header-add {
   position: relative;
   top: 15vh; }
 
 .input-bg {
-  background: rgba(22, 22, 22, 0.8);
+  background: rgba(22, 22, 22, 0.6);
   color: white;
   border-radius: 15%;
   text-decoration: none; }
@@ -71,7 +88,7 @@ ul {
   margin: 10%; }
 
 .footer-bg {
-  background: rgba(22, 22, 22, 0.8);
+  background: rgba(22, 22, 22, 0.5);
   position: relative;
   margin: 10% 0;
   width: 100%;

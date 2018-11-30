@@ -1,5 +1,5 @@
 
-<div class="header-bg">
+<div class="profile-element header-element">
 <h1 class="welcome-header">Welcome {{user.firstName}} {{user.lastName}}
   AKA {{user.username}}</h1>
 
@@ -7,36 +7,57 @@
 
 <br><br><br><br><br>
 
-<div class="footer-bg center-content">
+<div class="center-content">
 
   <ul>
+<div class="profile-element">
+  <br><br>
+<label>Hometown: </label>
+ {{user.homeTown}}
+</div>
 
-<label>Hometown:</label>
-{{user.homeTown}}
+
+<div class="profile-element">
 <br><br>
-<label>Favorite Artist:</label>
+<label>Favorite Artist: </label>
 {{user.favoriteArtist.name}}
+</div>
+
+<div class="profile-element">
 <br><br>
-<label>Favorite Album:</label>
+<label>Favorite Album: </label>
 {{user.favoriteAlbum.title}}
+</div>
+
+<div class="profile-element">
 <br><br>
-<label>Favorite Song:</label>
-{{user.favoriteSong}}
+<label>Favorite Song: </label>
+{{user.favoriteSong.title}}
+</div>
+
+<div class="profile-element">
+
 <br><br>
-<label>Bio:</label>
+<label>Bio: </label>
 {{user.bio}}
-{{user.image}}
+</div>
+
+<div class="profile-element">
 <br><br>
 <label></label>
 {{user.createdAt}}
+{{user.image}}
+</div>
 
+<div class="profile-element">
 
 <p>{{user.username}}'s love of music has no bounds</p>
   </ul>
 <br><br>
+  </div>
 </div>
 
-<div class="footer-bg">
+<div class="profile-element header-element">
 
     <ul class="page-links">
 
@@ -46,11 +67,11 @@
     <a href="/albums">Albums</a>
     <a href="/songs">Songs</a>
     <a href="/">Home</a>
-    </ul>
     <h2 class="page-links">
-<button class="add-button page-links input-bg">
-
+<button class="page-links input-bg">
 <a href="/logout">Log Out</a>
-</button>
-</h2>
+
+        </button>
+      </h2>
+    </ul>
 </div>

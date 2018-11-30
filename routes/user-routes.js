@@ -48,7 +48,7 @@ router.post('/register', (req, res, next)=> {
       const theUsername = req.body.username;
       const thePassword = req.body.password;
       const theBio      = req.body.bio;
-
+console.log(req.body)
       if (req.body.password !== req.body.confirmPassword) {
         res.locals.message = "Error: incorrect Password!";
         res.render("users/signup-page");
@@ -185,21 +185,17 @@ router.post('/profile/:id/profile-edit', (req, res, next)=>{
 
 
 router.get("/profile", (req, res, next)=>{
-  if(!req.user) {
-    req.flash("error", "Sorry, you must be logged in for access")
-    res.redirect('/login');
-  }
-  User.findById(req.user.id).populate("favoriteArtist").populate("favoriteAlbum")
+  // if(!req.user) {
+  //   req.flash("error", "Sorry, you must be logged in for access")
+  //   res.redirect('/login');
+  // }
+  User.findById(req.user._id).populate("favoriteArtist").populate("favoriteAlbum").populate("favoriteSong")
   .then((user)=>{
-      if(!req.user._id.equals(user._id)){
-        req.logout();
-        req.flash("error", "wrong profile, please try again with different profile.")
-        res.redirect("/users/login-page");
-        return
-      }
+
       res.render("users/profile", {user})
   })
     .catch((err)=>{
+    
       res.redirect('/login');
     })
 })

@@ -11,7 +11,7 @@ const userSchema = new Schema({
       homeTown: String,
       favoriteArtist: {type: Schema.Types.ObjectId, ref:'Artist'},
       favoriteAlbum: {type: Schema.Types.ObjectId, ref: 'Album'},
-      favoriteSong: String,
+      favoriteSong: {type: Schema.Types.ObjectId, ref: 'Song'},
       image: String,
       admin: {type: Boolean, default: false}
 }, {

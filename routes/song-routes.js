@@ -9,7 +9,7 @@ const flash        = require('connect-flash');
 router.get('/songs', (req, res, next)=>{
   Song.find()
     .then(songs => {
-      res.render("songs/song-list", { songs });
+      res.render("songs/song-list", { songs, user: req.user });
     })
     .catch(err => {
       console.log(err)

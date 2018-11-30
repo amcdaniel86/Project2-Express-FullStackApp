@@ -1,5 +1,5 @@
 
-<div class="header-bg">
+<div class="profile-element header-element">
 <h1 class="welcome-header">Register A New Account</h1>
 </div>
 
@@ -49,10 +49,10 @@
 <li>
 
 <label for="">Favorite Artist: </label>
-<select class="center-content input-bg" name="favoriteArtist" id="">
+<select class=" drop-down page-links add-button center-content input-bg" name="favoriteArtist" id="">
 {{#each artists}}
 
-<option class="center-content input-bg" value="{{this._id}}">{{this.name}}</option>
+<option class=" center-content input-bg" value="{{this._id}}">{{this.name}}</option>
 
 {{/each}}</select>
 </li>
@@ -60,7 +60,7 @@
 <li>
 
 <label for="">Favorite Album: </label>
-<select class="center-content input-bg" name="favoriteAlbum" id="">
+<select class=" drop-down page-links add-button center-content input-bg" name="favoriteAlbum" id="">
 {{#each albums}}
 
 <option class="center-content input-bg" value="{{this._id}}">{{this.title}}</option>
@@ -70,19 +70,19 @@
 
 <li>
 <label for="">Favorite Song: </label>
-<select class="center-content input-bg" name="favoriteSong" id="">
+<select class=" drop-down page-links add-button center-content input-bg" name="favoriteSong" id="">
 {{#each songs}}
 
-<option class="center-content input-bg" value="{{this.-id}}">{{this.title}}</option>
+<option class="center-content input-bg" value="{{this._id}}">{{this.title}}</option>
 
 {{/each}}</select>
 </li>
 
 <li>
 
-<label for="">Picture</label>
+{{!-- <label for="">Picture</label>
 <input class="center-content input-bg" type="text" name="image">
-</li>
+</li> --}}
 
 <li>
 
@@ -94,7 +94,7 @@
 </ul>
 
 
-<button class="input-bg page-links">Create an Account</button>
+<button class=" add-button input-bg page-links">Create an Account</button>
 
 {{#if message}}
 
@@ -104,9 +104,9 @@
 
 <br><br>
 
-<div class="footer-bg">
+<div class="profile-element header-element">
 
-<ul class="page-links">
+<ul>
 <a href="/login">Log In</a>
 <br><br>
 <a href="/">Home</a>

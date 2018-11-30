@@ -18,7 +18,7 @@ const Album       = require('../models/Album.js');
 router.get('/artists', (req, res, next)=>{
   Artist.find().populate("albums")
     .then(artists => {
-      res.render("artists/artist-list", { artists });
+      res.render("artists/artist-list", { artists, user: req.user});
     })
     .catch(err => {
       console.log(err)
@@ -95,7 +95,7 @@ router.get('/artists/:id/edit', (req, res, next)=>{
     .then((artist)=>{
       Album.find()
       .then((allTheAlbums)=>{
-        res.render('artists/artist-edit', {artist, message: req.flash("error"), albums: allTheAlbums} );
+        res.render('artists/artist-edit', {artist, message: req.flash("error"), albums: allTheAlbums, user: req.user} );
       })
       .catch((err)=>{
         next(err);

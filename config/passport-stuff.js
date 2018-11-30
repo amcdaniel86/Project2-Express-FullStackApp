@@ -32,7 +32,8 @@ passport.serializeUser((user, cb) => {
       if (!bcrypt.compareSync(password, user.password)) {
         return next(null, false, { message: "Incorrect password" });
       }
-  
+      
+      console.log('wowowoowowowow')
       return next(null, user);
     });
   }));

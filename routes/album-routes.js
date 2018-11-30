@@ -8,7 +8,7 @@ const flash        = require('connect-flash');
 router.get('/albums', (req, res, next)=>{
   Album.find()
     .then(albums => {
-      res.render("albums/album-list", { albums });
+      res.render("albums/album-list", { albums, user: req.user });
     })
     .catch(err => {
       console.log(err)
