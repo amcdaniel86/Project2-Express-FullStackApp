@@ -1,4 +1,4 @@
-<div class="profile-element header-element">
+<div class="input-bg profile-element header-element">
 <h1 class="welcome-header">Welcome to MusicTopia Artist List</h1>
 </div>
 
@@ -6,7 +6,6 @@
 
 <h2 class="page-links">
 <button class="add-button page-links input-bg">
-
 <a href="/artist-new">Add Artist</a>
 </button>
 </h2>
@@ -34,8 +33,17 @@
 
 <ul class="page-links">
 
-<a href="/artists/{{this._id}}/details">Details</a><br><br>
-<a href="/artists/{{this._id}}/edit">Edit This Artist</a> <br><br>
+<h2 class="page-links">
+<button class=" header-add add-button page-links input-bg">
+<a href="/artists/{{this._id}}/details">Details</a>
+</button>
+</h2>
+
+<h2 class="page-links">
+<button class=" header-add add-button page-links input-bg">
+<a href="/artists/{{this._id}}/edit">Edit This Artist</a>
+</button>
+</h2>
 </ul>
 
 <h6>
@@ -46,20 +54,19 @@
 
 {{/each}}
 
-<div class="profile-element header-element">
-
-<h2 class="button-margin1 page-links">
+<h2 class="page-links">
 <button class=" page-links input-bg">
 
 <a href="/artist-new">Add Artist</a>
 </button>
 </h2>
 
+<div class="profile-element header-element">
+
 <ul class="page-links">
 
 <a href="/profile">Profile</a>
-<br><br>
-<a href="/{{user._id}}/profile-edit">Edit Profile</a> <br><br>
+<a href="/{{user._id}}/profile-edit">Edit Profile</a>
 <a href="/albums">Albums</a>
 <br><br>
 <a href="/songs">Songs</a>

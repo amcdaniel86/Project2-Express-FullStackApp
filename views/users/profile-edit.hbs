@@ -15,27 +15,27 @@
 <li>
 
 <label>First Name: </label>
-<input class="input-bg" type="text" name="firstName" value="{{user.firstName}}">
+<input class="drop-down input-bg" type="text" name="firstName" value="{{user.firstName}}">
 </li>
 {{!-- each input controls what the user is allowed inside the post request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
 <li>
 
 <label>Last Name: </label>
-<input class="input-bg" type="text" name="lastName" value="{{user.lastName}}">
+<input class="drop-down input-bg" type="text" name="lastName" value="{{user.lastName}}">
 </li>
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 
 <li>
 
 <label>Bio: </label>
-<textarea class="input-bg" name="bio" cols="30" rows="10" value="{{user.bio}}"></textarea>
+<textarea class=" drop-down input-bg" name="bio" cols="30" rows="10" value="{{user.bio}}"></textarea>
 </li>
 
 <li>
 
 <label>Hometown: </label>
-<input class="input-bg" type="text" name="homeTown" value="{{user.homeTown}}">
+<input class="drop-down input-bg" type="text" name="homeTown" value="{{user.homeTown}}">
 </li>
 
 <li>

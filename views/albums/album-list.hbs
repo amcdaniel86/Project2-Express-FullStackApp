@@ -1,16 +1,14 @@
-<div class="profile-element header-element">
-<h1 class="welcome-header">Welcome to the MusicTopia Album List</h1>
+<div class="input-bg profile-element header-element">
+<h1 class="welcome-header">Welcome to MusicTopia Album List</h1>
 
 </div>
 
 <h2 class="page-links">
 <button class=" header-add add-button page-links input-bg">
-
 <a href="/album-new">Add Album</a>
 </button>
 </h2>
-
-<br><br><br><br>
+<br>
 {{#each albums}}
 <ul class="input-bg page-links">
 
@@ -24,12 +22,25 @@
 
 <p>{{this.rating}}</p>
 
-<img src="{{this.image}}" style="width: 100px" alt=""><br><br>
+<img src="{{this.image}}" style="width: 100px" alt="">
+
+<ul class="page-links">
+<h2 class="page-links">
+<button class="page-links input-bg">
+<a href="/albums/{{this._id}}/details">Details</a>
+</button>
+</h2>
+</ul>
 
 <ul class="page-links">
 
-<a href="/albums/{{this._id}}/details">Details</a><br><br>
-<a href="/albums/{{this._id}}/edit">Edit This Album</a><br><br>
+<h2 class="page-links">
+<button class="page-links input-bg">
+<a href="/albums/{{this._id}}/edit">Edit This Album</a>
+</button>
+</h2>
+</ul>
+
 </ul>
 
 
@@ -43,10 +54,6 @@
 
 {{/each}}
 
-<br><br>
-
-<div class="profile-element header-element">
-
 <h2 class="page-links">
 <button class="page-links input-bg">
 
@@ -54,14 +61,40 @@
 </button>
 </h2>
 
+<div class="center-menu profile-element header-element">
+
 <ul class="page-links">
 
-<a href="/profile">Profile</a><br><br>
-<a href="/{{user._id}}/profile-edit">Edit Profile</a> <br><br>
+<h2 class="page-links">
+<button class="page-links input-bg">
+<a href="/profile">Profile</a>
+</button>
+</h2>
+
+<h2 class="page-links">
+<button class="page-links input-bg">
+<a href="/{{user._id}}/profile-edit">Edit Profile</a>
+</button>
+</h2>
+
+<h2 class="page-links">
+<button class="page-links input-bg">
 <a href="/artists">Artists</a>
-<br><br>
+</button>
+</h2>
+
+<h2 class="page-links">
+<button class="page-links input-bg">
 <a href="/songs">Songs</a>
+</button>
+</h2>
+
+<h2 class="page-links">
+<button class="page-links input-bg">
 <a href="/">Home</a>
+</button>
+</h2>
+
 </ul>
 </div>
 {{!-- name sections in input must match below from each model --}}

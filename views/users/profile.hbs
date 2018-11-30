@@ -1,60 +1,62 @@
 
-<div class="profile-element header-element">
+<div class="input-bg profile-element header-element">
 <h1 class="welcome-header">Welcome {{user.firstName}} {{user.lastName}}
   AKA {{user.username}}</h1>
 
 </div>
 
-<br><br><br><br><br>
+<br><br>
 
 <div class="center-content">
 
   <ul>
-<div class="profile-element">
+<div class="input-bg profile-element">
   <br><br>
 <label>Hometown: </label>
  {{user.homeTown}}
 </div>
 
 
-<div class="profile-element">
+<div class="input-bg profile-element">
 <br><br>
 <label>Favorite Artist: </label>
 {{user.favoriteArtist.name}}
 </div>
 
-<div class="profile-element">
+<div class="input-bg profile-element">
 <br><br>
 <label>Favorite Album: </label>
 {{user.favoriteAlbum.title}}
 </div>
 
-<div class="profile-element">
+<div class="input-bg profile-element">
 <br><br>
 <label>Favorite Song: </label>
 {{user.favoriteSong.title}}
 </div>
 
-<div class="profile-element">
-
+<div class="input-bg profile-element">
 <br><br>
 <label>Bio: </label>
 {{user.bio}}
 </div>
 
-<div class="profile-element">
+<div class="input-bg profile-element">
 <br><br>
 <label></label>
 {{user.createdAt}}
 {{user.image}}
 </div>
 
-<div class="profile-element">
+<div class="input-bg profile-element">
 
 <p>{{user.username}}'s love of music has no bounds</p>
   </ul>
-<br><br>
   </div>
+  <h2 class="page-links">
+<button class=" page-links input-bg">
+<a href="/logout">Log Out</a></button>
+</h2>
 </div>
 
 <div class="profile-element header-element">
@@ -68,10 +70,6 @@
     <a href="/songs">Songs</a>
     <a href="/">Home</a>
     <h2 class="page-links">
-<button class="page-links input-bg">
-<a href="/logout">Log Out</a>
-
-        </button>
       </h2>
     </ul>
 </div>

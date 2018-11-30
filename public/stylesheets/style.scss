@@ -29,7 +29,7 @@ ul {
   background: rgba(22,22,22,.6);
   position: absolute;
   color: white;
-  width: 94%;
+  width: auto;
   border-radius:80%;
 }
 
@@ -46,10 +46,15 @@ ul {
   flex-direction: column;
 }
 
+.center-button{
+  display:flex;
+  justify-content:center;
+}
+
 .profile-element{
   background-color: rgba(22,22,22,0.6);
   margin:20px;
-  width:100vw;
+  width:auto;
   display:flex;
   align-items:center;
 }
@@ -57,10 +62,12 @@ ul {
 .header-element{
   justify-content:center;
   border-radius: 10%;
+  border: 2px gray dashed;
+  transition: border-width 0.5s linear;
 }
 
-.layout-footer{
-  text-decoration:line-through;
+.header-element:hover{
+  border-width:5px;
 }
 
 .signup-boxes li{
@@ -71,7 +78,7 @@ ul {
   display:flex;
   position:relative;
   text-decoration:none;
-  width:20%;
+  width:auto;
   color:white;
 }
 
@@ -84,7 +91,7 @@ ul {
 }
 
 .drop-down{
-  width:40%;
+  width:auto;
 }
 
 .header-add{
@@ -93,9 +100,9 @@ ul {
 }
 
 .input-bg{
-  background: rgba(22, 22, 22, 0.6);
+  background: rgba(53, 145, 161, 0.2);
   color:white;
-  border-radius: 15%;
+  border-radius: 12%;
   text-decoration:none;
 }
 
@@ -108,7 +115,6 @@ ul {
 
 .page-links a {
   margin:5%;
-  
 }
 
 .page-links button {
@@ -118,12 +124,34 @@ ul {
 .footer-bg{
   background: rgba(22,22,22,.5);
   position: relative;
-  margin: 10% 0;
-  width: 100%;
+  width: auto;
   border-radius:80%;
 }
 
 .footer{
   position:relative;
-  align-items:center;
+  align-items:flex-end;
+  border: 1px dotted darkred;
+  transition: border-width 0.5s linear;
+  width:30%;
 }
+
+.footer:hover{
+  border-width:4px;
+}
+
+.footer-spacing{
+  margin:0 20px;
+}
+
+.layout-footer{
+  background-color: rgba(22,22,22,0.6);
+  width:100%;
+  margin:0;
+  display:flex;
+  align-content:center;
+  justify-content:space-around;
+}
+
+//    
+// 

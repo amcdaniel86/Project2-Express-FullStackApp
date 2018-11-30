@@ -1,4 +1,4 @@
-<div class="profile-element header-element">
+<div class="input-bg profile-element header-element">
 <h1 class="welcome-header">Add New Song to our database</h1>
 
 </div>
@@ -19,14 +19,14 @@
 <li>
 
 <label>Title</label>
-<input class="input-bg" type="text" name="title">
+<input class="drop-down input-bg" type="text" name="title">
 </li>
 {{!-- each input controls what the user is allowed inside teh psot request. the name attribute adds the info INTO REQ.BODY on the routes page and the name of the key in req.body, will be whatever the name is. --}}
 
 <li>
 
 <label>Genre</label>
-<input class="input-bg" type="text" name="genre">
+<input class="drop-down input-bg" type="text" name="genre">
 </li>
 {{!-- if req.body doesn't connect correctly, check that names are correctly matching the model page, and that a post request was sent rather than a get request. --}}
 

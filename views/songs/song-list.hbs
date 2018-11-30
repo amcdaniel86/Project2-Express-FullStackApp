@@ -1,4 +1,4 @@
-<div class="profile-element header-element">
+<div class="input-bg profile-element header-element">
 <h1 class="welcome-header">Welcome to the MusicTopia Song List</h1>
 
 </div>
@@ -9,8 +9,7 @@
 <a href="/song-new">Add Song</a>
 </button>
 </h2>
-
-<br><br><br><br>
+<br>
 {{#each songs}}
 <ul class="input-bg page-links">
 
@@ -23,28 +22,34 @@
 
 <p>{{this.rating}}</p>
 
-<img src="{{this.image}}" style="width: 100px" alt=""><br><br>
+<img src="{{this.image}}" style="width: 100px" alt="">
 
 <ul class="page-links">
 
-<a href="/songs/{{this._id}}/details">Details</a><br><br>
-<a href="/songs/{{this._id}}/edit">Edit This Song</a><br><br>
-</ul>
+<h2 class="page-links">
+<button class=" header-add add-button page-links input-bg">
+<a href="/songs/{{this._id}}/details">Details</a>
+</button>
+</h2>
 
+<h2 class="page-links">
+<button class=" header-add add-button page-links input-bg">
+<a href="/songs/{{this._id}}/edit">Edit This Song</a>
+</button>
+</h2>
+</ul>
+<br><br><br>
 
 <h6>
 <form action="/songs/{{this._id}}/delete" method="Post">
 <button class="input-bg">Delete</button>
 </form>
 </h6>
+<br><br><br>
 {{!-- LOOK OUT FOR DOUBLE DOTS, DETAILS --}}
 
 
 {{/each}}
-
-<br><br>
-
-<div class="profile-element header-element">
 
 <h2 class="page-links">
 <button class="page-links input-bg">
@@ -52,6 +57,8 @@
 <a href="/song-new">Add Song</a>
 </button>
 </h2>
+
+<div class="profile-element header-element">
 
 <ul class="page-links">
 

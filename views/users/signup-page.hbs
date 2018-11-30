@@ -1,9 +1,8 @@
 
-<div class="profile-element header-element">
+<div class="input-bg profile-element header-element">
 <h1 class="welcome-header">Register A New Account</h1>
 </div>
-
-<br><br><br><br><br><br><br><br>
+<br>
 <form action="/register" method="POST">
 {{!-- name field in inputs are used after req.body in routes files. --}}
 
@@ -16,25 +15,20 @@
 </li>
 
 <li>
-
 <label for="">Password: </label>
 <input class="center-content input-bg" type="password" name="password" required>
 </li>
-<br>
-<br>
 <li>
 
 <label for="">Confirm Password: </label>
 <input class="center-content input-bg" type="password" name="confirmPassword" required>
 </li>
 
+<br><br><hr>
 <li>
-
 <label for="">First Name: </label>
 <input class="center-content input-bg" type="text" name="firstName">
 </li>
-
-<br>
 <li>
 
 <label for="">Last Name: </label>
@@ -46,15 +40,17 @@
 <textarea class="center-content input-bg" name="bio" id="" cols="30" rows="10" value="A few sentences... "></textarea>
 </li>
 
-<li>
+<br><br><hr>
 
+
+<li>
 <label for="">Favorite Artist: </label>
 <select class=" drop-down page-links add-button center-content input-bg" name="favoriteArtist" id="">
 {{#each artists}}
 
 <option class=" center-content input-bg" value="{{this._id}}">{{this.name}}</option>
-
-{{/each}}</select>
+{{/each}}
+</select>
 </li>
 
 <li>
@@ -90,11 +86,11 @@
 <input class="center-content input-bg" type="text" name="homeTown">
 </li>
 
-<br><br><br><br>
+<br>
 </ul>
 
 
-<button class=" add-button input-bg page-links">Create an Account</button>
+<button class="center-button add-button input-bg page-links">Create an Account</button>
 
 {{#if message}}
 
