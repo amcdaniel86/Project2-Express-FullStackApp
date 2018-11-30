@@ -52,7 +52,7 @@ ul {
 .header-element {
   justify-content: center;
   border-radius: 10%;
-  border: 2px gray dashed;
+  border: 1px gray dashed;
   transition: border-width 0.4s linear; }
 
 .header-element:hover {
@@ -109,11 +109,11 @@ ul {
   position: relative;
   align-items: flex-end;
   border: 1px solid darkred;
-  transition: border-width 0.5s linear;
+  transition: border-width 0.4s linear;
   width: 30%; }
 
 .footer:hover {
-  border-width: 7px; }
+  border-width: 5px; }
 
 .footer-spacing {
   margin: 0 20px; }
