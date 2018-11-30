@@ -9,18 +9,20 @@
 <br><br><br><br>
 <div class="content-placing">
 {{#each artists}}
+<ul class="input-bg page-links">
+
 <h2>
 {{artist.name}}
 </h2>
 {{/each}}
 
-<h3>
+<h3 class="footer-spacing page-links">
 {{artist.genre}}
 </h3>
-
 <p>
 {{artist.hometown}}
 </p>
+</ul>
 <p>
 {{artist.rating}}
 </p>
@@ -30,7 +32,11 @@
 
 <img src="{{image}}" alt="" style="width: 300px">
 <br>
+<h2 class="page-links">
+<button class=" header-add add-button page-links input-bg">
 <a href="/artists/{{artist._id}}/edit">Edit {{artist.name}}</a> <br><br>
+</button>
+</h2>
 </ul>
 
 
