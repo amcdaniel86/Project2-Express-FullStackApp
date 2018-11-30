@@ -63,11 +63,11 @@ ul {
   justify-content:center;
   border-radius: 10%;
   border: 2px gray dashed;
-  transition: border-width 0.5s linear;
+  transition: border-width 0.4s linear;
 }
 
 .header-element:hover{
-  border-width:5px;
+  border-width:4px;
 }
 
 .signup-boxes li{
@@ -131,13 +131,13 @@ ul {
 .footer{
   position:relative;
   align-items:flex-end;
-  border: 1px dotted darkred;
+  border: 1px solid darkred;
   transition: border-width 0.5s linear;
   width:30%;
 }
 
 .footer:hover{
-  border-width:4px;
+  border-width:7px;
 }
 
 .footer-spacing{
